@@ -1,4 +1,20 @@
-{ 
- "@@locale": "en",
- "name": "Name" 
+
+{
+  "@@locale": "en",
+  "appTitle": "Library",
+  "welcome": "Welcome!",
+  "loginDescription": "Log in to access your library",
+  "email": "Email",
+  "password": "Password",
+  "forgotPassword": "Forgot Password",
+  "login": "Log In",
+  "register": "Sign Up",
+  "or": "or",
+  "aboutUs": "About Us",
+  "aboutDescription": "Our mission is to help you find information about our products conveniently.",
+  "contactUs": "Contact Us",
+  "ourLocations": "Our Locations",
+  "locationOne": "Rua Padre Filho, 263 - Centro.",
+  "locationTwo": "Rua IV, 60 - Paulista.",
+  "locationThree": "Rua Norte Europeu, 110 - Vale Central."
 }

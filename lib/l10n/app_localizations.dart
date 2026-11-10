@@ -100,11 +100,101 @@ abstract class AppLocalizations {
     Locale('pt'),
   ];
 
-  /// No description provided for @name.
+  /// No description provided for @appTitle.
   ///
   /// In pt, this message translates to:
-  /// **'Nome'**
-  String get name;
+  /// **'Biblioteca'**
+  String get appTitle;
+
+  /// No description provided for @welcome.
+  ///
+  /// In pt, this message translates to:
+  /// **'Bem Vindo!'**
+  String get welcome;
+
+  /// No description provided for @loginDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Faça login para acessar sua biblioteca'**
+  String get loginDescription;
+
+  /// No description provided for @email.
+  ///
+  /// In pt, this message translates to:
+  /// **'E-mail'**
+  String get email;
+
+  /// No description provided for @password.
+  ///
+  /// In pt, this message translates to:
+  /// **'Senha'**
+  String get password;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In pt, this message translates to:
+  /// **'Esqueci Senha'**
+  String get forgotPassword;
+
+  /// No description provided for @login.
+  ///
+  /// In pt, this message translates to:
+  /// **'Entrar'**
+  String get login;
+
+  /// No description provided for @register.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cadastre-se'**
+  String get register;
+
+  /// No description provided for @or.
+  ///
+  /// In pt, this message translates to:
+  /// **'ou'**
+  String get or;
+
+  /// No description provided for @aboutUs.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sobre Nós'**
+  String get aboutUs;
+
+  /// No description provided for @aboutDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nossa missão é informar você aos seus produtos com praticidade.'**
+  String get aboutDescription;
+
+  /// No description provided for @contactUs.
+  ///
+  /// In pt, this message translates to:
+  /// **'Contate-nos'**
+  String get contactUs;
+
+  /// No description provided for @ourLocations.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nossos Locais'**
+  String get ourLocations;
+
+  /// No description provided for @locationOne.
+  ///
+  /// In pt, this message translates to:
+  /// **'Rua Padre Filho, 263 - Centro.'**
+  String get locationOne;
+
+  /// No description provided for @locationTwo.
+  ///
+  /// In pt, this message translates to:
+  /// **'Rua IV, 60 - Paulista.'**
+  String get locationTwo;
+
+  /// No description provided for @locationThree.
+  ///
+  /// In pt, this message translates to:
+  /// **'Rua Norte Europeu, 110 - Vale Central.'**
+  String get locationThree;
 }
 
 class _AppLocalizationsDelegate
