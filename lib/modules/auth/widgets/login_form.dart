@@ -1,6 +1,16 @@
 
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+
 import '../../../l10n/app_localizations.dart';
+import '../../../core/services/routes/app_routes.dart';
+import '../../../core/utils/app_validators.dart';
+import '../../../core/widgets/custom_text_field.dart';
+import '../../../core/widgets/form_header.dart';
+
+import '../controllers/login_controller.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -10,126 +20,181 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _loginController = LoginController();
+
+  bool _showPassword = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loginController.addListener(_onControllerChanged);
+  }
+
+  void _onControllerChanged() {
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  @override
+  void dispose() {
+    _loginController.removeListener(_onControllerChanged);
+    _loginController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _showMessage(String message) {
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(message),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+  }
+
+  Future<void> _login() async {
+    if (_loginController.isLoading) return;
+
+    if (!_formKey.currentState!.validate()) return;
+
+    try {
+      final destination = await _loginController.login(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+
+      if (!mounted) return;
+
+      Navigator.of(context).pushNamedAndRemoveUntil(
+        destination,
+        (route) => false,
+      );
+    } on TimeoutException {
+      if (!mounted) return;
+
+      final l10n = AppLocalizations.of(context)!;
+      _showMessage(l10n.connectionTimeout);
+    } on SocketException {
+      if (!mounted) return;
+
+      final l10n = AppLocalizations.of(context)!;
+      _showMessage(l10n.serverConnectionError);
+    } catch (_) {
+      if (!mounted) return;
+
+      final l10n = AppLocalizations.of(context)!;
+      _showMessage(l10n.loginError);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context)!;
+    final textColor = colors.onSurface;
+    final isLoading = _loginController.isLoading;
 
     return Form(
+      key: _formKey,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: colors.outline,
-                width: 2,
-              ),
-            ),
-            child: Icon(
-              Icons.book,
-              color: colors.onSurface,
-              size: 30,
-            ),
+          FormHeader(
+            title: l10n.welcome,
+            description: l10n.loginDescription,
+            icon: Icons.menu_book_outlined,
+            showBackButton: false,
           ),
-          Text(
-            l10n.welcome,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: colors.onSurface,
-            ),
-          ),
-          Text(
-            l10n.loginDescription,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: colors.onSurface,
-            ),
-          ),
+
           const SizedBox(height: 25),
-          Row(
-            children: [
-              Icon(
-                Icons.email,
-                color: colors.onSurface,
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: l10n.email,
-                    filled: true,
-                    fillColor: colors.onPrimary,
-                    isDense: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(
-                        width: 1,
-                        color: colors.outline,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+
+          CustomTextField(
+            icon: Icons.email_outlined,
+            controller: _emailController,
+            hint: l10n.email,
+            keyboardType: TextInputType.emailAddress,
+            validator: (value) =>
+                AppValidators.email(value, l10n),
           ),
-          const SizedBox(height: 15),
-          Row(
-            children: [
-              Icon(
-                Icons.lock,
-                color: colors.onSurface,
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: l10n.password,
-                    suffixIcon: const Icon(
-                      Icons.visibility,
-                    ),
-                    filled: true,
-                    fillColor: colors.onPrimary,
-                    isDense: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(
-                        width: 1,
-                        color: colors.outline,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+
           const SizedBox(height: 5),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(
+
+          CustomTextField(
+            icon: Icons.lock_outline,
+            controller: _passwordController,
+            hint: l10n.password,
+            obscureText: !_showPassword,
+            suffixIcon: IconButton(
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(
+                minWidth: 30,
+                minHeight: 0,
+              ),
+              visualDensity: VisualDensity.compact,
+              icon: Icon(
+                _showPassword
+                    ? Icons.visibility_off
+                    : Icons.visibility,
+                size: 17,
+                color: textColor,
+              ),
+              onPressed: () {
+                setState(() {
+                  _showPassword = !_showPassword;
+                });
+              },
+            ),
+            validator: (value) =>
+                AppValidators.required(value, l10n),
+          ),
+
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: isLoading
+                  ? null
+                  : () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.forgotPassword,
+                      );
+                    },
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                minimumSize: Size.zero,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              ),
+              child: Text(
                 l10n.forgotPassword,
                 style: TextStyle(
-                  color: colors.onSurface,
+                  fontSize: 12,
+                  decoration: TextDecoration.underline,
+                  decorationColor: textColor,
+                  color: textColor,
                 ),
               ),
-            ],
+            ),
           ),
+
           const SizedBox(height: 25),
+
           SizedBox(
             width: double.infinity,
             height: 45,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: isLoading ? null : _login,
               style: ElevatedButton.styleFrom(
                 backgroundColor: colors.primary,
                 foregroundColor: colors.onPrimary,
+                elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                   side: BorderSide(
@@ -138,9 +203,19 @@ class _LoginFormState extends State<LoginForm> {
                   ),
                 ),
               ),
-              child: Text(l10n.login),
+              child: isLoading
+                  ? SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: colors.onPrimary,
+                      ),
+                    )
+                  : Text(l10n.login),
             ),
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -157,7 +232,7 @@ class _LoginFormState extends State<LoginForm> {
                 child: Text(
                   l10n.or,
                   style: TextStyle(
-                    color: colors.onSurface,
+                    color: textColor,
                   ),
                 ),
               ),
@@ -169,14 +244,23 @@ class _LoginFormState extends State<LoginForm> {
               ),
             ],
           ),
+
           SizedBox(
             width: double.infinity,
             height: 45,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: isLoading
+                  ? null
+                  : () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.register,
+                      );
+                    },
               style: ElevatedButton.styleFrom(
                 backgroundColor: colors.surface,
-                foregroundColor: colors.onSurface,
+                foregroundColor: textColor,
+                elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                   side: BorderSide(

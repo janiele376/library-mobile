@@ -2,8 +2,14 @@
 import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 
-class AppHeader extends StatelessWidget implements PreferredSizeWidget {
-  const AppHeader({super.key});
+class AppHeader extends StatelessWidget
+    implements PreferredSizeWidget {
+  final String? pageTitle;
+
+  const AppHeader({
+    super.key,
+    this.pageTitle,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,22 +18,33 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       backgroundColor: colors.surface,
+      foregroundColor: colors.onSurface,
       centerTitle: true,
+      automaticallyImplyLeading: false,
       title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
-            Icons.book,
+            Icons.menu_book_outlined,
+            size: 28,
             color: colors.onSurface,
-            size: 32,
           ),
-          Text(
-            l10n.appTitle,
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: colors.onSurface,
+
+          const SizedBox(width: 5),
+
+          Flexible(
+            child: Text(
+              pageTitle == null
+                  ? l10n.appTitle
+                  : '${l10n.appTitle} $pageTitle',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w500,
+                color: colors.onSurface,
+              ),
             ),
           ),
         ],

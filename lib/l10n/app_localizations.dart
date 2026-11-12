@@ -195,6 +195,216 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Rua Norte Europeu, 110 - Vale Central.'**
   String get locationThree;
+
+  /// No description provided for @createAccount.
+  ///
+  /// In pt, this message translates to:
+  /// **'Criar Conta'**
+  String get createAccount;
+
+  /// No description provided for @registerTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cadastro'**
+  String get registerTitle;
+
+  /// No description provided for @registerDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Preencha os dados abaixo para criar sua conta.'**
+  String get registerDescription;
+
+  /// No description provided for @fullName.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome completo'**
+  String get fullName;
+
+  /// No description provided for @birthDateHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'DD/MM/AAAA'**
+  String get birthDateHint;
+
+  /// No description provided for @emailHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Usuario@gmail.com'**
+  String get emailHint;
+
+  /// No description provided for @cpfHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'000.000.000-00'**
+  String get cpfHint;
+
+  /// No description provided for @phoneHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'+99 99999-9999'**
+  String get phoneHint;
+
+  /// No description provided for @addressHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Logradouro, Nº - Bairro'**
+  String get addressHint;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In pt, this message translates to:
+  /// **'Confirmar senha'**
+  String get confirmPassword;
+
+  /// No description provided for @registerAction.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cadastrar'**
+  String get registerAction;
+
+  /// No description provided for @alreadyHaveAccount.
+  ///
+  /// In pt, this message translates to:
+  /// **'Já possui uma conta? Entrar'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @cancel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cancelar'**
+  String get cancel;
+
+  /// No description provided for @requiredField.
+  ///
+  /// In pt, this message translates to:
+  /// **'Campo obrigatório'**
+  String get requiredField;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe um e-mail válido'**
+  String get invalidEmail;
+
+  /// No description provided for @passwordMinLength.
+  ///
+  /// In pt, this message translates to:
+  /// **'A senha deve ter pelo menos 8 caracteres'**
+  String get passwordMinLength;
+
+  /// No description provided for @passwordsDoNotMatch.
+  ///
+  /// In pt, this message translates to:
+  /// **'As senhas não coincidem'**
+  String get passwordsDoNotMatch;
+
+  /// No description provided for @loginTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Login'**
+  String get loginTitle;
+
+  /// No description provided for @forgotPasswordTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Recuperar Senha'**
+  String get forgotPasswordTitle;
+
+  /// No description provided for @forgotPasswordDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe suas credenciais para recuperar o acesso.'**
+  String get forgotPasswordDescription;
+
+  /// No description provided for @newPassword.
+  ///
+  /// In pt, this message translates to:
+  /// **'Senha'**
+  String get newPassword;
+
+  /// No description provided for @recoverPassword.
+  ///
+  /// In pt, this message translates to:
+  /// **'Recuperar'**
+  String get recoverPassword;
+
+  /// No description provided for @connectionTimeout.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tempo de conexão esgotado.'**
+  String get connectionTimeout;
+
+  /// No description provided for @serverConnectionError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível conectar ao servidor.'**
+  String get serverConnectionError;
+
+  /// No description provided for @invalidCredentials.
+  ///
+  /// In pt, this message translates to:
+  /// **'E-mail ou senha inválidos.'**
+  String get invalidCredentials;
+
+  /// No description provided for @loginError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível realizar o login. Tente novamente.'**
+  String get loginError;
+
+  /// No description provided for @registerSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Conta criada com sucesso!'**
+  String get registerSuccess;
+
+  /// No description provided for @registerError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível criar a conta. Verifique os dados ou se o e-mail/CPF já está cadastrado.'**
+  String get registerError;
+
+  /// No description provided for @passwordRecoverySuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Senha alterada com sucesso!'**
+  String get passwordRecoverySuccess;
+
+  /// No description provided for @passwordRecoveryError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível alterar a senha. Verifique os dados.'**
+  String get passwordRecoveryError;
+
+  /// No description provided for @invalidName.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe um nome válido'**
+  String get invalidName;
+
+  /// No description provided for @invalidCpf.
+  ///
+  /// In pt, this message translates to:
+  /// **'CPF inválido'**
+  String get invalidCpf;
+
+  /// No description provided for @invalidPhone.
+  ///
+  /// In pt, this message translates to:
+  /// **'Telefone inválido. Informe o DDD.'**
+  String get invalidPhone;
+
+  /// No description provided for @invalidBirthDate.
+  ///
+  /// In pt, this message translates to:
+  /// **'Data de nascimento inválida'**
+  String get invalidBirthDate;
+
+  /// No description provided for @invalidAddress.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe um endereço válido'**
+  String get invalidAddress;
 }
 
 class _AppLocalizationsDelegate

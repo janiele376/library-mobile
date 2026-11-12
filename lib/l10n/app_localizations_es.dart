@@ -36,17 +36,17 @@ class AppLocalizationsEs extends AppLocalizations {
   String get or => 'o';
 
   @override
-  String get aboutUs => 'Sobre nosotros';
+  String get aboutUs => 'Sobre Nosotros';
 
   @override
   String get aboutDescription =>
-      'Nuestra misión es ayudarte a encontrar información sobre nuestros productos de forma práctica.';
+      'Nuestra misión es informarte sobre nuestros productos de manera práctica.';
 
   @override
   String get contactUs => 'Contáctanos';
 
   @override
-  String get ourLocations => 'Nuestras ubicaciones';
+  String get ourLocations => 'Nuestras Ubicaciones';
 
   @override
   String get locationOne => 'Rua Padre Filho, 263 - Centro.';
@@ -56,4 +56,115 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get locationThree => 'Rua Norte Europeu, 110 - Vale Central.';
+
+  @override
+  String get createAccount => 'Crear Cuenta';
+
+  @override
+  String get registerTitle => 'Registro';
+
+  @override
+  String get registerDescription =>
+      'Completa los datos a continuación para crear tu cuenta.';
+
+  @override
+  String get fullName => 'Nombre completo';
+
+  @override
+  String get birthDateHint => 'DD/MM/AAAA';
+
+  @override
+  String get emailHint => 'usuario@gmail.com';
+
+  @override
+  String get cpfHint => '000.000.000-00';
+
+  @override
+  String get phoneHint => '+99 99999-9999';
+
+  @override
+  String get addressHint => 'Calle, Número - Barrio';
+
+  @override
+  String get confirmPassword => 'Confirmar contraseña';
+
+  @override
+  String get registerAction => 'Registrarse';
+
+  @override
+  String get alreadyHaveAccount => '¿Ya tienes una cuenta? Inicia sesión';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get requiredField => 'Campo obligatorio';
+
+  @override
+  String get invalidEmail => 'Introduce un correo electrónico válido';
+
+  @override
+  String get passwordMinLength =>
+      'La contraseña debe tener al menos 8 caracteres';
+
+  @override
+  String get passwordsDoNotMatch => 'Las contraseñas no coinciden';
+
+  @override
+  String get loginTitle => 'Inicio de sesión';
+
+  @override
+  String get forgotPasswordTitle => 'Recuperar Contraseña';
+
+  @override
+  String get forgotPasswordDescription =>
+      'Introduce tus credenciales para recuperar el acceso.';
+
+  @override
+  String get newPassword => 'Contraseña';
+
+  @override
+  String get recoverPassword => 'Recuperar';
+
+  @override
+  String get connectionTimeout => 'Se agotó el tiempo de conexión.';
+
+  @override
+  String get serverConnectionError => 'No se pudo conectar al servidor.';
+
+  @override
+  String get invalidCredentials =>
+      'Correo electrónico o contraseña incorrectos.';
+
+  @override
+  String get loginError => 'No se pudo iniciar sesión. Inténtalo de nuevo.';
+
+  @override
+  String get registerSuccess => '¡Cuenta creada correctamente!';
+
+  @override
+  String get registerError =>
+      'No se pudo crear la cuenta. Revisa los datos o si el correo/CPF ya está registrado.';
+
+  @override
+  String get passwordRecoverySuccess => '¡Contraseña cambiada correctamente!';
+
+  @override
+  String get passwordRecoveryError =>
+      'No se pudo cambiar la contraseña. Revisa tus datos.';
+
+  @override
+  String get invalidName => 'Introduce un nombre válido';
+
+  @override
+  String get invalidCpf => 'CPF inválido';
+
+  @override
+  String get invalidPhone => 'Teléfono inválido. Incluye el código de área.';
+
+  @override
+  String get invalidBirthDate => 'Fecha de nacimiento inválida';
+
+  @override
+  String get invalidAddress => 'Introduce una dirección válida';
 }
