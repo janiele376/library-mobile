@@ -1,105 +1,75 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:library_mobile/l10n/app_localizations.dart';
 
-import 'core/theme/app_theme.dart';
-import 'core/services/routes/app_routes.dart';
-import 'core/services/auth/session_service.dart';
-
-import 'modules/auth/presentation/pages/login_page.dart';
-import 'modules/dashboard/presentation/pages/user_dashboard_page.dart';
-import 'modules/dashboard/presentation/pages/admin_dashboard_page.dart';
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
+void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Biblioteca AltisLab+',
-      debugShowCheckedModeBanner: false,
-
       localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+      AppLocalizations.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
       ],
-      locale: const Locale('pt'),
       supportedLocales: AppLocalizations.supportedLocales,
-
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
-
-      routes: AppRoutes.routes,
-
-      home: const AuthGate(),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class AuthGate extends StatefulWidget {
-  const AuthGate({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
 
   @override
-  State<AuthGate> createState() => _AuthGateState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _AuthGateState extends State<AuthGate> {
-  late Future<String?> _initialRouteFuture;
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    _initialRouteFuture = _checkSession();
-  }
-
-  Future<String?> _checkSession() async {
-    final isAuthenticated =
-        await SessionService.isAuthenticated();
-
-    if (!isAuthenticated) {
-      return null;
-    }
-
-    final isAdmin = await SessionService.isAdmin();
-
-    return isAdmin
-        ? AppRoutes.adminDashboard
-        : AppRoutes.userDashboard;
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<String?>(
-      future: _initialRouteFuture,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState != ConnectionState.done) {
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
+    final l10n = AppLocalizations.of(context)!;
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: .center,
+          children: [
+            Text(l10n.name),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
-          );
-        }
-
-        if (snapshot.hasError || snapshot.data == null) {
-          return const LoginPage();
-        }
-
-        if (snapshot.data == AppRoutes.adminDashboard) {
-          return const AdminDashboardPage();
-        }
-
-        return const UserDashboardPage();
-      },
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
