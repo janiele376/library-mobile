@@ -37,9 +37,7 @@ dependencies:
     sdk: flutter
 
   # Adicionar
-  flutter_secure_storage: ^11.2.0
-  http: ^1.6.0
-  intl: ^0.20.2
+  intl: ^0.20.3
 
 dev_dependencies:
   flutter_test:
@@ -66,8 +64,6 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  assets:
-    - assets/images/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
