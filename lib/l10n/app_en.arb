@@ -51,5 +51,40 @@
   "invalidCpf": "Invalid CPF",
   "invalidPhone": "Invalid phone number. Include area code.",
   "invalidBirthDate": "Invalid date of birth",
-  "invalidAddress": "Enter a valid address"
+  "invalidAddress": "Enter a valid address",
+  "dashboardTitle": "Dashboard",
+  "dashboardGlobalStats": "Global Statistics",
+  "dashboardTotalRentals": "Total Rentals",
+  "dashboardTotalBooks": "Registered Books",
+  "dashboardTotalPublishers": "Registered Publishers",
+  "dashboardRentalStatus": "Rental Status",
+  "dashboardOnTime": "On Time",
+  "dashboardNearDue": "Due Soon",
+  "dashboardOverdue": "Overdue",
+  "dashboardLastRentals": "Recently Rented Books",
+  "dashboardMostRentedBook": "Most Rented Book",
+  "dashboardAvailableBooks": "Available Books",
+  "dashboardTotalAvailableBooks": "Total books: {count}",
+  "@dashboardTotalAvailableBooks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dashboardPublisher": "Publisher",
+  "dashboardReleaseDate": "Release Date",
+  "dashboardQuantity": "Quantity",
+  "dashboardRentalQuantity": "Number of Rentals",
+  "dashboardNoRentals": "No rentals found.",
+  "dashboardNoBooks": "No books found.",
+  "dashboardNoAvailableBooks": "No books available.",
+  "dashboardNoData": "No data available.",
+  "dashboardLoadError": "Unable to load the dashboard.",
+  "dashboardRetry": "Try Again",
+  "dashboardViewMore": "VIEW MORE",
+  "dashboardStatusNearDue": "Approaching Due Date",
+  "dashboardAccessibilityUnavailable": "Accessibility page is under development.",
+  "dashboardProfileUnavailable": "Profile page has not been configured yet.",
+  "dashboardAdminAreaUnavailable": "Admin area has not been configured yet."
 }

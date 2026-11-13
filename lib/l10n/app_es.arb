@@ -51,6 +51,40 @@
   "invalidCpf": "CPF inválido",
   "invalidPhone": "Teléfono inválido. Incluye el código de área.",
   "invalidBirthDate": "Fecha de nacimiento inválida",
-  "invalidAddress": "Introduce una dirección válida"
-
+  "invalidAddress": "Introduce una dirección válida",
+  "dashboardTitle": "Panel de control",
+  "dashboardGlobalStats": "Estadísticas generales",
+  "dashboardTotalRentals": "Préstamos realizados",
+  "dashboardTotalBooks": "Libros registrados",
+  "dashboardTotalPublishers": "Editoriales registradas",
+  "dashboardRentalStatus": "Estado de los préstamos",
+  "dashboardOnTime": "Al día",
+  "dashboardNearDue": "Próximo a vencer",
+  "dashboardOverdue": "Vencido",
+  "dashboardLastRentals": "Últimos libros prestados",
+  "dashboardMostRentedBook": "Libro más prestado",
+  "dashboardAvailableBooks": "Libros disponibles",
+  "dashboardTotalAvailableBooks": "Total de libros: {count}",
+  "@dashboardTotalAvailableBooks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dashboardPublisher": "Editorial",
+  "dashboardReleaseDate": "Fecha de publicación",
+  "dashboardQuantity": "Cantidad",
+  "dashboardRentalQuantity": "Cantidad de préstamos",
+  "dashboardNoRentals": "No se encontraron préstamos.",
+  "dashboardNoBooks": "No se encontraron libros.",
+  "dashboardNoAvailableBooks": "No hay libros disponibles.",
+  "dashboardNoData": "No hay datos disponibles.",
+  "dashboardLoadError": "No se pudo cargar el panel de control.",
+  "dashboardRetry": "Intentar de nuevo",
+  "dashboardViewMore": "VER MÁS",
+  "dashboardStatusNearDue": "Próximo a la fecha de vencimiento",
+  "dashboardAccessibilityUnavailable": "La página de accesibilidad está en desarrollo.",
+  "dashboardProfileUnavailable": "La página de perfil aún no está configurada.",
+  "dashboardAdminAreaUnavailable": "El área administrativa aún no está configurada."
 }

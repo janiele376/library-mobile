@@ -11,7 +11,6 @@ class ApiClient {
 
   static final http.Client _client = http.Client();
 
-  // Monta os cabeçalhos da requisição.
   static Future<Map<String, String>> _buildHeaders({
     Map<String, String>? headers,
     bool authenticated = false,
@@ -39,7 +38,6 @@ class ApiClient {
     return requestHeaders;
   }
 
-  // GET - Consultar informações.
   static Future<http.Response> get(
     String endpoint, {
     Map<String, String>? headers,
@@ -54,7 +52,6 @@ class ApiClient {
     ).timeout(const Duration(seconds: 10));
   }
 
-  // POST - Enviar informações.
   static Future<http.Response> post(
     String endpoint, {
     Map<String, dynamic>? body,
@@ -72,7 +69,6 @@ class ApiClient {
     ).timeout(const Duration(seconds: 10));
   }
 
-  // PUT - Atualizar informações.
   static Future<http.Response> put(
     String endpoint, {
     Map<String, dynamic>? body,
@@ -90,7 +86,6 @@ class ApiClient {
     ).timeout(const Duration(seconds: 10));
   }
 
-  // DELETE - Excluir informações.
   static Future<http.Response> delete(
     String endpoint, {
     Map<String, String>? headers,

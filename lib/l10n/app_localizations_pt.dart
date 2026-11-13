@@ -166,4 +166,93 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get invalidAddress => 'Informe um endereço válido';
+
+  @override
+  String get dashboardTitle => 'Dashboard';
+
+  @override
+  String get dashboardGlobalStats => 'Quantitativos Globais';
+
+  @override
+  String get dashboardTotalRentals => 'Aluguéis Realizados';
+
+  @override
+  String get dashboardTotalBooks => 'Livros Cadastrados';
+
+  @override
+  String get dashboardTotalPublishers => 'Editoras Cadastradas';
+
+  @override
+  String get dashboardRentalStatus => 'Status dos Aluguéis';
+
+  @override
+  String get dashboardOnTime => 'Em Dia';
+
+  @override
+  String get dashboardNearDue => 'Perto do Vencimento';
+
+  @override
+  String get dashboardOverdue => 'Atrasado';
+
+  @override
+  String get dashboardLastRentals => 'Últimos Livros Alugados';
+
+  @override
+  String get dashboardMostRentedBook => 'Livro Mais Alugado';
+
+  @override
+  String get dashboardAvailableBooks => 'Livros Disponíveis';
+
+  @override
+  String dashboardTotalAvailableBooks(int count) {
+    return 'Total de livros: $count';
+  }
+
+  @override
+  String get dashboardPublisher => 'Editora';
+
+  @override
+  String get dashboardReleaseDate => 'Data de Lançamento';
+
+  @override
+  String get dashboardQuantity => 'Quantidade';
+
+  @override
+  String get dashboardRentalQuantity => 'Quantidade de Aluguéis';
+
+  @override
+  String get dashboardNoRentals => 'Nenhum empréstimo encontrado.';
+
+  @override
+  String get dashboardNoBooks => 'Nenhum livro encontrado.';
+
+  @override
+  String get dashboardNoAvailableBooks => 'Nenhum livro disponível.';
+
+  @override
+  String get dashboardNoData => 'Nenhum dado disponível.';
+
+  @override
+  String get dashboardLoadError => 'Não foi possível carregar a Dashboard.';
+
+  @override
+  String get dashboardRetry => 'Tentar novamente';
+
+  @override
+  String get dashboardViewMore => 'VER MAIS';
+
+  @override
+  String get dashboardStatusNearDue => 'Próximo do vencimento';
+
+  @override
+  String get dashboardAccessibilityUnavailable =>
+      'Página de acessibilidade em desenvolvimento.';
+
+  @override
+  String get dashboardProfileUnavailable =>
+      'Página de perfil ainda não configurada.';
+
+  @override
+  String get dashboardAdminAreaUnavailable =>
+      'Área administrativa ainda não configurada.';
 }

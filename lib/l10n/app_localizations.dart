@@ -405,6 +405,174 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Informe um endereço válido'**
   String get invalidAddress;
+
+  /// No description provided for @dashboardTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dashboard'**
+  String get dashboardTitle;
+
+  /// No description provided for @dashboardGlobalStats.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quantitativos Globais'**
+  String get dashboardGlobalStats;
+
+  /// No description provided for @dashboardTotalRentals.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aluguéis Realizados'**
+  String get dashboardTotalRentals;
+
+  /// No description provided for @dashboardTotalBooks.
+  ///
+  /// In pt, this message translates to:
+  /// **'Livros Cadastrados'**
+  String get dashboardTotalBooks;
+
+  /// No description provided for @dashboardTotalPublishers.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editoras Cadastradas'**
+  String get dashboardTotalPublishers;
+
+  /// No description provided for @dashboardRentalStatus.
+  ///
+  /// In pt, this message translates to:
+  /// **'Status dos Aluguéis'**
+  String get dashboardRentalStatus;
+
+  /// No description provided for @dashboardOnTime.
+  ///
+  /// In pt, this message translates to:
+  /// **'Em Dia'**
+  String get dashboardOnTime;
+
+  /// No description provided for @dashboardNearDue.
+  ///
+  /// In pt, this message translates to:
+  /// **'Perto do Vencimento'**
+  String get dashboardNearDue;
+
+  /// No description provided for @dashboardOverdue.
+  ///
+  /// In pt, this message translates to:
+  /// **'Atrasado'**
+  String get dashboardOverdue;
+
+  /// No description provided for @dashboardLastRentals.
+  ///
+  /// In pt, this message translates to:
+  /// **'Últimos Livros Alugados'**
+  String get dashboardLastRentals;
+
+  /// No description provided for @dashboardMostRentedBook.
+  ///
+  /// In pt, this message translates to:
+  /// **'Livro Mais Alugado'**
+  String get dashboardMostRentedBook;
+
+  /// No description provided for @dashboardAvailableBooks.
+  ///
+  /// In pt, this message translates to:
+  /// **'Livros Disponíveis'**
+  String get dashboardAvailableBooks;
+
+  /// No description provided for @dashboardTotalAvailableBooks.
+  ///
+  /// In pt, this message translates to:
+  /// **'Total de livros: {count}'**
+  String dashboardTotalAvailableBooks(int count);
+
+  /// No description provided for @dashboardPublisher.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editora'**
+  String get dashboardPublisher;
+
+  /// No description provided for @dashboardReleaseDate.
+  ///
+  /// In pt, this message translates to:
+  /// **'Data de Lançamento'**
+  String get dashboardReleaseDate;
+
+  /// No description provided for @dashboardQuantity.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quantidade'**
+  String get dashboardQuantity;
+
+  /// No description provided for @dashboardRentalQuantity.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quantidade de Aluguéis'**
+  String get dashboardRentalQuantity;
+
+  /// No description provided for @dashboardNoRentals.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum empréstimo encontrado.'**
+  String get dashboardNoRentals;
+
+  /// No description provided for @dashboardNoBooks.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum livro encontrado.'**
+  String get dashboardNoBooks;
+
+  /// No description provided for @dashboardNoAvailableBooks.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum livro disponível.'**
+  String get dashboardNoAvailableBooks;
+
+  /// No description provided for @dashboardNoData.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum dado disponível.'**
+  String get dashboardNoData;
+
+  /// No description provided for @dashboardLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível carregar a Dashboard.'**
+  String get dashboardLoadError;
+
+  /// No description provided for @dashboardRetry.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tentar novamente'**
+  String get dashboardRetry;
+
+  /// No description provided for @dashboardViewMore.
+  ///
+  /// In pt, this message translates to:
+  /// **'VER MAIS'**
+  String get dashboardViewMore;
+
+  /// No description provided for @dashboardStatusNearDue.
+  ///
+  /// In pt, this message translates to:
+  /// **'Próximo do vencimento'**
+  String get dashboardStatusNearDue;
+
+  /// No description provided for @dashboardAccessibilityUnavailable.
+  ///
+  /// In pt, this message translates to:
+  /// **'Página de acessibilidade em desenvolvimento.'**
+  String get dashboardAccessibilityUnavailable;
+
+  /// No description provided for @dashboardProfileUnavailable.
+  ///
+  /// In pt, this message translates to:
+  /// **'Página de perfil ainda não configurada.'**
+  String get dashboardProfileUnavailable;
+
+  /// No description provided for @dashboardAdminAreaUnavailable.
+  ///
+  /// In pt, this message translates to:
+  /// **'Área administrativa ainda não configurada.'**
+  String get dashboardAdminAreaUnavailable;
 }
 
 class _AppLocalizationsDelegate

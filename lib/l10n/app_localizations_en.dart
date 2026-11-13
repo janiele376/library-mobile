@@ -165,4 +165,93 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalidAddress => 'Enter a valid address';
+
+  @override
+  String get dashboardTitle => 'Dashboard';
+
+  @override
+  String get dashboardGlobalStats => 'Global Statistics';
+
+  @override
+  String get dashboardTotalRentals => 'Total Rentals';
+
+  @override
+  String get dashboardTotalBooks => 'Registered Books';
+
+  @override
+  String get dashboardTotalPublishers => 'Registered Publishers';
+
+  @override
+  String get dashboardRentalStatus => 'Rental Status';
+
+  @override
+  String get dashboardOnTime => 'On Time';
+
+  @override
+  String get dashboardNearDue => 'Due Soon';
+
+  @override
+  String get dashboardOverdue => 'Overdue';
+
+  @override
+  String get dashboardLastRentals => 'Recently Rented Books';
+
+  @override
+  String get dashboardMostRentedBook => 'Most Rented Book';
+
+  @override
+  String get dashboardAvailableBooks => 'Available Books';
+
+  @override
+  String dashboardTotalAvailableBooks(int count) {
+    return 'Total books: $count';
+  }
+
+  @override
+  String get dashboardPublisher => 'Publisher';
+
+  @override
+  String get dashboardReleaseDate => 'Release Date';
+
+  @override
+  String get dashboardQuantity => 'Quantity';
+
+  @override
+  String get dashboardRentalQuantity => 'Number of Rentals';
+
+  @override
+  String get dashboardNoRentals => 'No rentals found.';
+
+  @override
+  String get dashboardNoBooks => 'No books found.';
+
+  @override
+  String get dashboardNoAvailableBooks => 'No books available.';
+
+  @override
+  String get dashboardNoData => 'No data available.';
+
+  @override
+  String get dashboardLoadError => 'Unable to load the dashboard.';
+
+  @override
+  String get dashboardRetry => 'Try Again';
+
+  @override
+  String get dashboardViewMore => 'VIEW MORE';
+
+  @override
+  String get dashboardStatusNearDue => 'Approaching Due Date';
+
+  @override
+  String get dashboardAccessibilityUnavailable =>
+      'Accessibility page is under development.';
+
+  @override
+  String get dashboardProfileUnavailable =>
+      'Profile page has not been configured yet.';
+
+  @override
+  String get dashboardAdminAreaUnavailable =>
+      'Admin area has not been configured yet.';
 }

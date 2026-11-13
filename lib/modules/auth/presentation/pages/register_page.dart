@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
-import '../../../core/widgets/app_header.dart';
-import '../widgets/forgot_password_form.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../../core/widgets/app_header.dart';
+import '../widgets/register_form.dart';
 
-class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class ForgotPasswordPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppHeader(
-        pageTitle: l10n.forgotPasswordTitle,
+        pageTitle: l10n.registerTitle,
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -49,7 +49,7 @@ class ForgotPasswordPage extends StatelessWidget {
                       color: colors.surface,
                       borderRadius: BorderRadius.circular(45),
                     ),
-                    child: const ForgotPasswordForm(),
+                    child: const RegisterForm(),
                   ),
                 ),
               ),

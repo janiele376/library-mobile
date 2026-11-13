@@ -44,7 +44,6 @@ class CustomTextField extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Ícone externo.
           SizedBox(
             width: 24,
             height: 30,
@@ -57,7 +56,6 @@ class CustomTextField extends StatelessWidget {
 
           const SizedBox(width: 8),
 
-          // Campo de texto.
           Expanded(
             child: TextFormField(
               controller: controller,
@@ -84,7 +82,6 @@ class CustomTextField extends StatelessWidget {
 
                 isDense: true,
 
-                // Mantém a mesma altura nos campos.
                 constraints: const BoxConstraints(
                   minHeight: 34,
                 ),
@@ -94,7 +91,6 @@ class CustomTextField extends StatelessWidget {
                   vertical: 8,
                 ),
 
-                // Ícone interno com tamanho controlado.
                 suffixIcon: suffixIcon == null
                     ? null
                     : SizedBox(

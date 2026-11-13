@@ -7,9 +7,9 @@ import 'core/theme/app_theme.dart';
 import 'core/services/routes/app_routes.dart';
 import 'core/services/auth/session_service.dart';
 
-import 'modules/auth/pages/login_page.dart';
-import 'modules/dashboard/pages/user_dashboard_page.dart';
-import 'modules/dashboard/pages/admin_dashboard_page.dart';
+import 'modules/auth/presentation/pages/login_page.dart';
+import 'modules/dashboard/presentation/pages/user_dashboard_page.dart';
+import 'modules/dashboard/presentation/pages/admin_dashboard_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

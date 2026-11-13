@@ -4,14 +4,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
-import '../../../core/utils/app_validators.dart';
-import '../../../core/utils/input_formatters.dart';
-import '../../../core/widgets/custom_text_field.dart';
-import '../../../core/widgets/form_header.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../../core/utils/app_validators.dart';
+import '../../../../core/utils/input_formatters.dart';
+import '../../../../core/widgets/custom_text_field.dart';
+import '../../../../core/widgets/form_header.dart';
 
-import '../controllers/forgot_password_controller.dart';
-import '../models/forgot_password_request.dart';
+import '../../controllers/forgot_password_controller.dart';
+import '../../models/forgot_password_request.dart';
 
 class ForgotPasswordForm extends StatefulWidget {
   const ForgotPasswordForm({super.key});

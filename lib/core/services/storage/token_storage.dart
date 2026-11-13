@@ -9,7 +9,6 @@ class TokenStorage {
 
   static const String _tokenKey = 'auth_token';
 
-  // Salvar o token JWT.
   static Future<void> saveToken(String token) async {
     await _storage.write(
       key: _tokenKey,
@@ -17,14 +16,12 @@ class TokenStorage {
     );
   }
 
-  // Recuperar o token JWT.
   static Future<String?> getToken() async {
     return _storage.read(
       key: _tokenKey,
     );
   }
 
-  // Remover o token ao sair da conta.
   static Future<void> deleteToken() async {
     await _storage.delete(
       key: _tokenKey,

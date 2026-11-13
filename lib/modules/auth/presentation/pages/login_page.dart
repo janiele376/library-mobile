@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../l10n/app_localizations.dart';
-import '../../../core/widgets/app_header.dart';
-import '../../../core/widgets/app_footer.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../../core/widgets/app_header.dart';
+import '../../../../core/widgets/app_footer.dart';
 import '../widgets/login_form.dart';
 
 class LoginPage extends StatelessWidget {
@@ -28,7 +28,6 @@ class LoginPage extends StatelessWidget {
               child: IntrinsicHeight(
                 child: Column(
                   children: [
-                    // Área principal com imagem de fundo.
                     Expanded(
                       child: Container(
                         width: double.infinity,
@@ -44,7 +43,6 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         child: Center(
-                          // Cartão do formulário.
                           child: Container(
                             width: 350,
                             margin: const EdgeInsets.symmetric(
@@ -62,7 +60,6 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
 
-                    // Rodapé da página.
                     const AppFooter(),
                   ],
                 ),
