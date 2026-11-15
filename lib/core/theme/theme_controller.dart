@@ -21,3 +21,23 @@ class ThemeController extends ChangeNotifier {
     );
   }
 }
+
+class ThemeControllerScope extends InheritedNotifier<ThemeController> {
+  const ThemeControllerScope({
+    super.key,
+    required ThemeController controller,
+    required super.child,
+  }) : super(notifier: controller);
+
+  static ThemeController of(BuildContext context) {
+    final scope = context
+        .dependOnInheritedWidgetOfExactType<ThemeControllerScope>();
+
+    assert(
+      scope != null,
+      'ThemeControllerScope não encontrado na árvore de widgets.',
+    );
+
+    return scope!.notifier!;
+  }
+}

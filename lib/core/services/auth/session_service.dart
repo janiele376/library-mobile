@@ -6,7 +6,6 @@ import '../storage/token_storage.dart';
 class SessionService {
   SessionService._();
 
-  // Recuperar os dados do JWT.
   static Future<Map<String, dynamic>?> getTokenPayload() async {
     final token = await TokenStorage.getToken();
 
@@ -35,7 +34,6 @@ class SessionService {
         return null;
       }
 
-      // Verificar a expiração.
       final expiration = data['exp'];
 
       if (expiration is! num) {
@@ -60,13 +58,11 @@ class SessionService {
     }
   }
 
-  // Verificar se existe uma sessão não expirada.
   static Future<bool> isAuthenticated() async {
     final payload = await getTokenPayload();
     return payload != null;
   }
 
-  // Identificar se o usuário é administrador.
   static Future<bool> isAdmin() async {
     final payload = await getTokenPayload();
 
@@ -77,7 +73,6 @@ class SessionService {
     return payload['isAdmin'] == true;
   }
 
-  // Encerrar a sessão.
   static Future<void> logout() async {
     await TokenStorage.deleteToken();
   }
