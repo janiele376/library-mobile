@@ -255,4 +255,138 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get dashboardAdminAreaUnavailable =>
       'Área administrativa ainda não configurada.';
+
+  @override
+  String get settingsTitle => 'Configurações';
+
+  @override
+  String get accessibilityTitle => 'Personalize sua experiência';
+
+  @override
+  String get accessibilityDescription =>
+      'Configure a aparência e a leitura do aplicativo.';
+
+  @override
+  String get accessibilityThemeTitle => 'Tema do aplicativo';
+
+  @override
+  String get accessibilityThemeDescription =>
+      'Escolha a aparência do aplicativo.';
+
+  @override
+  String get themeLight => 'Claro';
+
+  @override
+  String get themeDark => 'Escuro';
+
+  @override
+  String get themeSystem => 'Seguir sistema';
+
+  @override
+  String get accessibilityFontSizeTitle => 'Tamanho da fonte';
+
+  @override
+  String get accessibilityFontSizeDescription => 'Ajuste o tamanho dos textos.';
+
+  @override
+  String get accessibilityFontSmall => 'Pequeno';
+
+  @override
+  String get accessibilityFontLarge => 'Grande';
+
+  @override
+  String get accessibilityFontPreview =>
+      'Exemplo de texto para visualizar o tamanho selecionado.';
+
+  @override
+  String get accessibilityLanguageTitle => 'Idioma';
+
+  @override
+  String get accessibilityLanguageDescription =>
+      'Selecione o idioma do aplicativo.';
+
+  @override
+  String get languagePortuguese => 'Português';
+
+  @override
+  String get languageEnglish => 'Inglês';
+
+  @override
+  String get languageSpanish => 'Espanhol';
+
+  @override
+  String get phone => 'Telefone';
+
+  @override
+  String get address => 'Endereço';
+
+  @override
+  String get cpf => 'CPF';
+
+  @override
+  String get birthDate => 'Data de nascimento';
+
+  @override
+  String get needHelp => 'Precisa de ajuda?';
+
+  @override
+  String get currentPassword => 'Senha atual';
+
+  @override
+  String get newPasswordOptional => 'Nova senha (opcional)';
+
+  @override
+  String get confirmNewPassword => 'Confirmar nova senha';
+
+  @override
+  String get profileLoadError => 'Não foi possível carregar seu perfil.';
+
+  @override
+  String get retry => 'Tentar novamente';
+
+  @override
+  String get profileNotFound => 'Perfil não encontrado.';
+
+  @override
+  String get profileUpdated => 'Perfil atualizado com sucesso!';
+
+  @override
+  String get profileUpdateError =>
+      'Não foi possível atualizar. Verifique sua senha atual e tente novamente.';
+
+  @override
+  String get editInformation => 'Editar informações';
+
+  @override
+  String get confirm => 'Confirmar';
+
+  @override
+  String get requestSent => 'Solicitação enviada com sucesso!';
+
+  @override
+  String get helpEmailRequired => 'Informe seu e-mail.';
+
+  @override
+  String get helpSubjectRequired => 'Informe o assunto.';
+
+  @override
+  String get subject => 'Assunto';
+
+  @override
+  String get send => 'Enviar';
+
+  @override
+  String get personalInformation => 'Informações pessoais';
+
+  @override
+  String get menuTitle => 'MENU';
+
+  @override
+  String get adminAreaTitle => 'Área do ADM';
+
+  @override
+  String get logout => 'Sair';
+
+  @override
+  String get logoutConfirmation => 'Deseja sair do sistema?';
 }

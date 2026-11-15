@@ -573,6 +573,264 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Área administrativa ainda não configurada.'**
   String get dashboardAdminAreaUnavailable;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Configurações'**
+  String get settingsTitle;
+
+  /// No description provided for @accessibilityTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Personalize sua experiência'**
+  String get accessibilityTitle;
+
+  /// No description provided for @accessibilityDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Configure a aparência e a leitura do aplicativo.'**
+  String get accessibilityDescription;
+
+  /// No description provided for @accessibilityThemeTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tema do aplicativo'**
+  String get accessibilityThemeTitle;
+
+  /// No description provided for @accessibilityThemeDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Escolha a aparência do aplicativo.'**
+  String get accessibilityThemeDescription;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In pt, this message translates to:
+  /// **'Claro'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In pt, this message translates to:
+  /// **'Escuro'**
+  String get themeDark;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In pt, this message translates to:
+  /// **'Seguir sistema'**
+  String get themeSystem;
+
+  /// No description provided for @accessibilityFontSizeTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tamanho da fonte'**
+  String get accessibilityFontSizeTitle;
+
+  /// No description provided for @accessibilityFontSizeDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ajuste o tamanho dos textos.'**
+  String get accessibilityFontSizeDescription;
+
+  /// No description provided for @accessibilityFontSmall.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pequeno'**
+  String get accessibilityFontSmall;
+
+  /// No description provided for @accessibilityFontLarge.
+  ///
+  /// In pt, this message translates to:
+  /// **'Grande'**
+  String get accessibilityFontLarge;
+
+  /// No description provided for @accessibilityFontPreview.
+  ///
+  /// In pt, this message translates to:
+  /// **'Exemplo de texto para visualizar o tamanho selecionado.'**
+  String get accessibilityFontPreview;
+
+  /// No description provided for @accessibilityLanguageTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Idioma'**
+  String get accessibilityLanguageTitle;
+
+  /// No description provided for @accessibilityLanguageDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Selecione o idioma do aplicativo.'**
+  String get accessibilityLanguageDescription;
+
+  /// No description provided for @languagePortuguese.
+  ///
+  /// In pt, this message translates to:
+  /// **'Português'**
+  String get languagePortuguese;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In pt, this message translates to:
+  /// **'Inglês'**
+  String get languageEnglish;
+
+  /// No description provided for @languageSpanish.
+  ///
+  /// In pt, this message translates to:
+  /// **'Espanhol'**
+  String get languageSpanish;
+
+  /// No description provided for @phone.
+  ///
+  /// In pt, this message translates to:
+  /// **'Telefone'**
+  String get phone;
+
+  /// No description provided for @address.
+  ///
+  /// In pt, this message translates to:
+  /// **'Endereço'**
+  String get address;
+
+  /// No description provided for @cpf.
+  ///
+  /// In pt, this message translates to:
+  /// **'CPF'**
+  String get cpf;
+
+  /// No description provided for @birthDate.
+  ///
+  /// In pt, this message translates to:
+  /// **'Data de nascimento'**
+  String get birthDate;
+
+  /// No description provided for @needHelp.
+  ///
+  /// In pt, this message translates to:
+  /// **'Precisa de ajuda?'**
+  String get needHelp;
+
+  /// No description provided for @currentPassword.
+  ///
+  /// In pt, this message translates to:
+  /// **'Senha atual'**
+  String get currentPassword;
+
+  /// No description provided for @newPasswordOptional.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nova senha (opcional)'**
+  String get newPasswordOptional;
+
+  /// No description provided for @confirmNewPassword.
+  ///
+  /// In pt, this message translates to:
+  /// **'Confirmar nova senha'**
+  String get confirmNewPassword;
+
+  /// No description provided for @profileLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível carregar seu perfil.'**
+  String get profileLoadError;
+
+  /// No description provided for @retry.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tentar novamente'**
+  String get retry;
+
+  /// No description provided for @profileNotFound.
+  ///
+  /// In pt, this message translates to:
+  /// **'Perfil não encontrado.'**
+  String get profileNotFound;
+
+  /// No description provided for @profileUpdated.
+  ///
+  /// In pt, this message translates to:
+  /// **'Perfil atualizado com sucesso!'**
+  String get profileUpdated;
+
+  /// No description provided for @profileUpdateError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível atualizar. Verifique sua senha atual e tente novamente.'**
+  String get profileUpdateError;
+
+  /// No description provided for @editInformation.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar informações'**
+  String get editInformation;
+
+  /// No description provided for @confirm.
+  ///
+  /// In pt, this message translates to:
+  /// **'Confirmar'**
+  String get confirm;
+
+  /// No description provided for @requestSent.
+  ///
+  /// In pt, this message translates to:
+  /// **'Solicitação enviada com sucesso!'**
+  String get requestSent;
+
+  /// No description provided for @helpEmailRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe seu e-mail.'**
+  String get helpEmailRequired;
+
+  /// No description provided for @helpSubjectRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe o assunto.'**
+  String get helpSubjectRequired;
+
+  /// No description provided for @subject.
+  ///
+  /// In pt, this message translates to:
+  /// **'Assunto'**
+  String get subject;
+
+  /// No description provided for @send.
+  ///
+  /// In pt, this message translates to:
+  /// **'Enviar'**
+  String get send;
+
+  /// No description provided for @personalInformation.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informações pessoais'**
+  String get personalInformation;
+
+  /// No description provided for @menuTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'MENU'**
+  String get menuTitle;
+
+  /// No description provided for @adminAreaTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Área do ADM'**
+  String get adminAreaTitle;
+
+  /// No description provided for @logout.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sair'**
+  String get logout;
+
+  /// No description provided for @logoutConfirmation.
+  ///
+  /// In pt, this message translates to:
+  /// **'Deseja sair do sistema?'**
+  String get logoutConfirmation;
 }
 
 class _AppLocalizationsDelegate

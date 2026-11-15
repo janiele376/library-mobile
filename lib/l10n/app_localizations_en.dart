@@ -254,4 +254,137 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get dashboardAdminAreaUnavailable =>
       'Admin area has not been configured yet.';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get accessibilityTitle => 'Personalize your experience';
+
+  @override
+  String get accessibilityDescription =>
+      'Configure the appearance and readability of the app.';
+
+  @override
+  String get accessibilityThemeTitle => 'App theme';
+
+  @override
+  String get accessibilityThemeDescription =>
+      'Choose the appearance of the app.';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeSystem => 'Follow system';
+
+  @override
+  String get accessibilityFontSizeTitle => 'Font size';
+
+  @override
+  String get accessibilityFontSizeDescription => 'Adjust the text size.';
+
+  @override
+  String get accessibilityFontSmall => 'Small';
+
+  @override
+  String get accessibilityFontLarge => 'Large';
+
+  @override
+  String get accessibilityFontPreview =>
+      'Sample text to preview the selected size.';
+
+  @override
+  String get accessibilityLanguageTitle => 'Language';
+
+  @override
+  String get accessibilityLanguageDescription => 'Select the app language.';
+
+  @override
+  String get languagePortuguese => 'Portuguese';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get languageSpanish => 'Español';
+
+  @override
+  String get phone => 'Phone';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get cpf => 'CPF';
+
+  @override
+  String get birthDate => 'Date of birth';
+
+  @override
+  String get needHelp => 'Need help?';
+
+  @override
+  String get currentPassword => 'Current password';
+
+  @override
+  String get newPasswordOptional => 'New password (optional)';
+
+  @override
+  String get confirmNewPassword => 'Confirm new password';
+
+  @override
+  String get profileLoadError => 'Unable to load your profile.';
+
+  @override
+  String get retry => 'Try again';
+
+  @override
+  String get profileNotFound => 'Profile not found.';
+
+  @override
+  String get profileUpdated => 'Profile updated successfully!';
+
+  @override
+  String get profileUpdateError =>
+      'Unable to update. Check your current password and try again.';
+
+  @override
+  String get editInformation => 'Edit information';
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String get requestSent => 'Request sent successfully!';
+
+  @override
+  String get helpEmailRequired => 'Enter your email.';
+
+  @override
+  String get helpSubjectRequired => 'Enter the subject.';
+
+  @override
+  String get subject => 'Subject';
+
+  @override
+  String get send => 'Send';
+
+  @override
+  String get personalInformation => 'Personal information';
+
+  @override
+  String get menuTitle => 'MENU';
+
+  @override
+  String get adminAreaTitle => 'Admin Area';
+
+  @override
+  String get logout => 'Log out';
+
+  @override
+  String get logoutConfirmation => 'Do you want to log out?';
 }
