@@ -130,5 +130,21 @@
   "menuTitle": "MENU",
   "adminAreaTitle": "Área do ADM",
   "logout": "Sair",
-  "logoutConfirmation": "Deseja sair do sistema?"
+  "logoutConfirmation": "Deseja sair do sistema?",
+  "usersTab": "Usuários",
+  "rentalsTab": "Aluguéis",
+  "booksTab": "Livros",
+  "publishersTab": "Editoras",
+  "adminSearchHint": "Pesquisar...",
+  "filters": "Filtros",
+  "previousPage": "Página anterior",
+  "nextPage": "Próxima página",
+  "view": "Visualizar",
+  "edit": "Editar",
+  "delete": "Excluir",
+  "renew": "Renovar",
+  "returnBook": "Devolver",
+  "userName": "Nome do Usuário",
+  "actions": "Ações",
+  "save": "Salvar"
 }

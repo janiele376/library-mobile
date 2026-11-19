@@ -89,12 +89,6 @@ class _RegisterFormState extends State<RegisterForm> {
     _formKey.currentState?.validate();
   }
 
-  String _formatBirthDateForApi() {
-    final parts = _birthDateController.text.split('/');
-
-    return '${parts[2]}-${parts[1]}-${parts[0]}';
-  }
-
   void _showMessage(String message) {
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
@@ -113,7 +107,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
     final request = RegisterRequest(
       name: _nameController.text,
-      birthDate: _formatBirthDateForApi(),
+      birthDate: _birthDateController.text,
       email: _emailController.text,
       cpf: _documentController.text,
       phone: _phoneController.text,
@@ -194,6 +188,9 @@ class _RegisterFormState extends State<RegisterForm> {
             onTap: _selectBirthDate,
             validator: (value) =>
                 AppValidators.birthDate(value, l10n),
+            inputFormatters: [
+              AppInputFormatters.date,
+            ],
           ),
 
           CustomTextField(

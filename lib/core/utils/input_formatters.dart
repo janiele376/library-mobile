@@ -11,11 +11,16 @@ class AppInputFormatters {
   static TextInputFormatter get phone => _MaskFormatter(
         type: _MaskType.phone,
       );
+
+  static TextInputFormatter get date => _MaskFormatter(
+        type: _MaskType.date,
+      );
 }
 
 enum _MaskType {
   cpf,
   phone,
+  date,
 }
 
 class _MaskFormatter extends TextInputFormatter {
@@ -33,8 +38,10 @@ class _MaskFormatter extends TextInputFormatter {
       '',
     );
 
-    final limited = digits.length > 11
-        ? digits.substring(0, 11)
+    final maxLength = type == _MaskType.date ? 8 : 11;
+
+    final limited = digits.length > maxLength
+        ? digits.substring(0, maxLength)
         : digits;
 
     final cursor = newValue.selection.end.clamp(
@@ -48,9 +55,11 @@ class _MaskFormatter extends TextInputFormatter {
         .length
         .clamp(0, limited.length);
 
-    final formatted = type == _MaskType.cpf
-        ? _formatCpf(limited)
-        : _formatPhone(limited);
+    final formatted = switch (type) {
+      _MaskType.cpf => _formatCpf(limited),
+      _MaskType.phone => _formatPhone(limited),
+      _MaskType.date => _formatDate(limited),
+    };
 
     int newCursor = 0;
     int digitCount = 0;
@@ -106,5 +115,16 @@ class _MaskFormatter extends TextInputFormatter {
 
     return '($ddd) ${number.substring(0, split)}'
         '-${number.substring(split)}';
+  }
+
+  String _formatDate(String digits) {
+    final buffer = StringBuffer();
+
+    for (int i = 0; i < digits.length; i++) {
+      if (i == 2 || i == 4) buffer.write('/');
+      buffer.write(digits[i]);
+    }
+
+    return buffer.toString();
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/services/auth/session_service.dart';
 import '../../../../core/services/routes/app_routes.dart';
-import '../../../../core/utils/date_formatter.dart';
+import '../../../../core/utils/app_formatter.dart';
 import '../../../../core/widgets/app_header.dart';
 import '../../../../core/widgets/app_menu.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -82,7 +82,7 @@ class _UserDashboardPageState extends State<UserDashboardPage> {
                   DashboardRentalCard(
                     rental: dashboard.lastRentals[i],
                     index: i + 1,
-                    formatDate: DateFormatter.format,
+                    formatDate: AppFormatters.formatDate,
                     statusLabel: _statusLabel,
                   ),
               ],

@@ -390,4 +390,52 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get logoutConfirmation => '¿Desea salir del sistema?';
+
+  @override
+  String get usersTab => 'Usuarios';
+
+  @override
+  String get rentalsTab => 'Préstamos';
+
+  @override
+  String get booksTab => 'Libros';
+
+  @override
+  String get publishersTab => 'Editoriales';
+
+  @override
+  String get adminSearchHint => 'Buscar...';
+
+  @override
+  String get filters => 'Filtros';
+
+  @override
+  String get previousPage => 'Página anterior';
+
+  @override
+  String get nextPage => 'Página siguiente';
+
+  @override
+  String get view => 'Visualizar';
+
+  @override
+  String get edit => 'Editar';
+
+  @override
+  String get delete => 'Eliminar';
+
+  @override
+  String get renew => 'Renovar';
+
+  @override
+  String get returnBook => 'Devolver';
+
+  @override
+  String get userName => 'Nombre del usuario';
+
+  @override
+  String get actions => 'Acciones';
+
+  @override
+  String get save => 'Guardar';
 }

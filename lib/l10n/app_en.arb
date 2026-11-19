@@ -129,5 +129,21 @@
   "menuTitle": "MENU",
   "adminAreaTitle": "Admin Area",
   "logout": "Log out",
-  "logoutConfirmation": "Do you want to log out?"
+  "logoutConfirmation": "Do you want to log out?",
+  "usersTab": "Users",
+  "rentalsTab": "Rentals",
+  "booksTab": "Books",
+  "publishersTab": "Publishers",
+  "adminSearchHint": "Search...",
+  "filters": "Filters",
+  "previousPage": "Previous page",
+  "nextPage": "Next page",
+  "view": "View",
+  "edit": "Edit",
+  "delete": "Delete",
+  "renew": "Renew",
+  "returnBook": "Return",
+  "userName": "User Name",
+  "actions": "Actions",
+  "save": "Save"
 }

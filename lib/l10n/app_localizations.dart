@@ -831,6 +831,102 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Deseja sair do sistema?'**
   String get logoutConfirmation;
+
+  /// No description provided for @usersTab.
+  ///
+  /// In pt, this message translates to:
+  /// **'Usuários'**
+  String get usersTab;
+
+  /// No description provided for @rentalsTab.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aluguéis'**
+  String get rentalsTab;
+
+  /// No description provided for @booksTab.
+  ///
+  /// In pt, this message translates to:
+  /// **'Livros'**
+  String get booksTab;
+
+  /// No description provided for @publishersTab.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editoras'**
+  String get publishersTab;
+
+  /// No description provided for @adminSearchHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pesquisar...'**
+  String get adminSearchHint;
+
+  /// No description provided for @filters.
+  ///
+  /// In pt, this message translates to:
+  /// **'Filtros'**
+  String get filters;
+
+  /// No description provided for @previousPage.
+  ///
+  /// In pt, this message translates to:
+  /// **'Página anterior'**
+  String get previousPage;
+
+  /// No description provided for @nextPage.
+  ///
+  /// In pt, this message translates to:
+  /// **'Próxima página'**
+  String get nextPage;
+
+  /// No description provided for @view.
+  ///
+  /// In pt, this message translates to:
+  /// **'Visualizar'**
+  String get view;
+
+  /// No description provided for @edit.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar'**
+  String get edit;
+
+  /// No description provided for @delete.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir'**
+  String get delete;
+
+  /// No description provided for @renew.
+  ///
+  /// In pt, this message translates to:
+  /// **'Renovar'**
+  String get renew;
+
+  /// No description provided for @returnBook.
+  ///
+  /// In pt, this message translates to:
+  /// **'Devolver'**
+  String get returnBook;
+
+  /// No description provided for @userName.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome do Usuário'**
+  String get userName;
+
+  /// No description provided for @actions.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ações'**
+  String get actions;
+
+  /// No description provided for @save.
+  ///
+  /// In pt, this message translates to:
+  /// **'Salvar'**
+  String get save;
 }
 
 class _AppLocalizationsDelegate

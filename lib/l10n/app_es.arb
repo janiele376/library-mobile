@@ -129,5 +129,21 @@
   "menuTitle": "MENÚ",
   "adminAreaTitle": "Área de administración",
   "logout": "Salir",
-  "logoutConfirmation": "¿Desea salir del sistema?"
+  "logoutConfirmation": "¿Desea salir del sistema?",
+  "usersTab": "Usuarios",
+  "rentalsTab": "Préstamos",
+  "booksTab": "Libros",
+  "publishersTab": "Editoriales",
+  "adminSearchHint": "Buscar...",
+  "filters": "Filtros",
+  "previousPage": "Página anterior",
+  "nextPage": "Página siguiente",
+  "view": "Visualizar",
+  "edit": "Editar",
+  "delete": "Eliminar",
+  "renew": "Renovar",
+  "returnBook": "Devolver",
+  "userName": "Nombre del usuario",
+  "actions": "Acciones",
+  "save": "Guardar"
 }

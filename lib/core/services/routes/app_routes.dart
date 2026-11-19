@@ -12,6 +12,8 @@ import '../../../modules/settings/accessibility/presentation/pages/accessibility
 import '../../../modules/settings/adjustments/presentation/pages/adjustments_page.dart';
 import '../../../modules/settings/presentation/settings_page.dart';
 
+import '../../../modules/admin/pages/users/presentation/pages/users_page.dart';
+
 class AppRoutes {
   AppRoutes._();
 
@@ -26,6 +28,8 @@ class AppRoutes {
   static const String adjustments = '/adjustments';
   static const String settings = '/settings';
 
+  static const String usersPage = '/users';
+
   static Map<String, WidgetBuilder> get routes => {
     login: (context) => const LoginPage(),
     register: (context) => const RegisterPage(),
@@ -37,5 +41,7 @@ class AppRoutes {
     acessibility: (context) => const AccessibilityPage(),
     adjustments: (context) => const AdjustmentsPage(),
     settings:(context) => const SettingsPage(),
+
+    usersPage: (context) => const UsersPage(),
   };
 }
