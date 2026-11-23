@@ -192,12 +192,6 @@ class AppMenu extends StatelessWidget {
             selected: selectedPage == AppMenuPage.dashboard,
             onTap: onDashboard,
           ),
-          _menuItem(
-            context: context,
-            title: l10n.settingsTitle,
-            selected: selectedPage == AppMenuPage.settings,
-            onTap: onSettings,
-          ),
           if (isAdmin && onAdminArea != null)
             _menuItem(
               context: context,
@@ -205,6 +199,12 @@ class AppMenu extends StatelessWidget {
               selected: selectedPage == AppMenuPage.adminArea,
               onTap: onAdminArea!,
             ),
+          _menuItem(
+            context: context,
+            title: l10n.settingsTitle,
+            selected: selectedPage == AppMenuPage.settings,
+            onTap: onSettings,
+          ),
           _menuItem(
             context: context,
             title: l10n.logout,

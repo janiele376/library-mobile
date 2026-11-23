@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_validators.dart';
-import '../../../../../core/utils/date_formatter.dart';
+import '../../../../../core/utils/app_formatter.dart';
 import '../../../../../core/utils/input_formatters.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
 import '../../../../../l10n/app_localizations.dart';
@@ -116,7 +116,7 @@ class _AdjustmentsPageState extends State<AdjustmentsPage> {
 
     if (date == null) return value;
 
-    return DateFormatter.format(date);
+    return AppFormatters.formatDate(date);
   }
 
   void _clearPasswordFields() {

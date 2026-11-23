@@ -2,20 +2,22 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color lightPage = Color(0xFFE9E4DE);
-  static const Color lightCard = Color(0xFFDBC2B0);
+  // LIGHT THEME
+  static const Color lightPage = Color(0xFFEAE4DF);
+  static const Color lightCard = Color(0xFFDEC2AF);
   static const Color lightInput = Color(0xFFFFFFFF);
   static const Color lightInputReadonly = Color(0xFFE5D7CC);
 
-  static const Color lightText = Color(0xFF55463C);
+  static const Color lightText = Color(0xFF604C40);
   static const Color lightTextMuted = Color(0xFF7A6A5F);
-  static const Color lightBorder = Color(0xFF55463C);
+  static const Color lightBorder = Color(0xFF604C40);
 
   static const Color lightMenu = Color(0xFF927A6A);
-  static const Color lightPrimaryButton = Color(0xFF55463C);
+  static const Color lightPrimaryButton = Color(0xFF604C40);
   static const Color lightPrimaryButtonText = Color(0xFFFFFFFF);
-  static const Color lightSecondaryButton = Color(0xFFDBC2B0);
+  static const Color lightSecondaryButton = Color(0xFFDEC2AF);
 
+  // DARK THEME
   static const Color darkPage = Color(0xFF1E1915);
   static const Color darkCard = Color(0xFF2C241F);
   static const Color darkInput = Color(0xFF1E1915);
@@ -33,15 +35,29 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: lightPage,
+
     colorScheme: const ColorScheme.light(
-      tertiary: lightMenu,
+      surfaceContainerLow: lightPage,
       primary: lightPrimaryButton,
       onPrimary: lightPrimaryButtonText,
+
+      secondary: lightSecondaryButton,
+      onSecondary: lightText,
+
+      tertiary: lightMenu,
+      onTertiary: Colors.white,
+
       surface: lightCard,
       onSurface: lightText,
+
       outline: lightBorder,
-      secondary: lightSecondaryButton,
+      outlineVariant: lightTextMuted,
+      onSurfaceVariant: lightTextMuted,
+
+      error: Color(0xFFB3261E),
+      onError: Colors.white,
     ),
+
     appBarTheme: const AppBarTheme(
       backgroundColor: lightCard,
       foregroundColor: lightText,
@@ -51,15 +67,29 @@ class AppTheme {
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     scaffoldBackgroundColor: darkPage,
+
     colorScheme: const ColorScheme.dark(
-      tertiary: darkMenu,
+      surfaceContainerLow: darkPage,
       primary: darkPrimaryButton,
       onPrimary: darkPrimaryButtonText,
+
+      secondary: darkSecondaryButton,
+      onSecondary: darkText,
+
+      tertiary: darkMenu,
+      onTertiary: Colors.white,
+
       surface: darkCard,
       onSurface: darkText,
+
       outline: darkBorder,
-      secondary: darkSecondaryButton,
+      outlineVariant: darkTextMuted,
+      onSurfaceVariant: darkTextMuted,
+
+      error: Color(0xFFCF6679),
+      onError: Colors.black,
     ),
+
     appBarTheme: const AppBarTheme(
       backgroundColor: darkCard,
       foregroundColor: darkText,

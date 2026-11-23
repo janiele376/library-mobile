@@ -12,6 +12,11 @@ import '../../../modules/settings/accessibility/presentation/pages/accessibility
 import '../../../modules/settings/adjustments/presentation/pages/adjustments_page.dart';
 import '../../../modules/settings/presentation/settings_page.dart';
 
+import '../../../modules/admin/pages/users/presentation/pages/users_page.dart';
+import '../../../modules/admin/pages/publishers/presentation/pages/publishers_page.dart';
+import '../../../modules/admin/pages/books/presentation/pages/books_page.dart';
+import '../../../modules/admin/pages/rentals/presentation/pages/rentals_page.dart';
+
 class AppRoutes {
   AppRoutes._();
 
@@ -26,6 +31,11 @@ class AppRoutes {
   static const String adjustments = '/adjustments';
   static const String settings = '/settings';
 
+  static const String usersPage = '/users';
+  static const String publishersPage = '/publishers';
+  static const String booksPage = '/books';
+  static const String rentalsPage = '/rentals';
+
   static Map<String, WidgetBuilder> get routes => {
     login: (context) => const LoginPage(),
     register: (context) => const RegisterPage(),
@@ -36,6 +46,11 @@ class AppRoutes {
 
     acessibility: (context) => const AccessibilityPage(),
     adjustments: (context) => const AdjustmentsPage(),
-    settings:(context) => const SettingsPage(),
+    settings: (context) => const SettingsPage(),
+
+    usersPage: (context) => const UsersPage(),
+    publishersPage: (context) => const PublishersPage(),
+    booksPage: (context) => const BooksPage(),
+    rentalsPage: (context) => const RentalsPage(),
   };
 }

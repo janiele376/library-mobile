@@ -51,12 +51,8 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
   }
 
   void _openAdminArea() {
-    final l10n = AppLocalizations.of(context)!;
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(l10n.dashboardAdminAreaUnavailable),
-      ),
+    Navigator.of(context).pushReplacementNamed(
+      AppRoutes.usersPage,
     );
   }
 
@@ -120,7 +116,11 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
           ),
           const SizedBox(height: 8),
           TextButton(
-            onPressed: null,
+            onPressed: (){
+              Navigator.of(context).pushNamed(
+                AppRoutes.rentalsPage,
+              );
+            },
             style: TextButton.styleFrom(
               backgroundColor: colors.primary,
               foregroundColor: colors.onPrimary,
