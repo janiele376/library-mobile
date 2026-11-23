@@ -107,7 +107,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
     final request = RegisterRequest(
       name: _nameController.text,
-      birthDate: _birthDateController.text,
+      birthDate: _birthDateController.text.split('/').reversed.join('-'),
       email: _emailController.text,
       cpf: _documentController.text,
       phone: _phoneController.text,
@@ -304,8 +304,8 @@ class _RegisterFormState extends State<RegisterForm> {
             child: ElevatedButton(
               onPressed: isLoading ? null : _register,
               style: ElevatedButton.styleFrom(
-                backgroundColor: colors.primary,
-                foregroundColor: colors.onPrimary,
+                backgroundColor: colors.onPrimary,
+                foregroundColor: colors.primary,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),

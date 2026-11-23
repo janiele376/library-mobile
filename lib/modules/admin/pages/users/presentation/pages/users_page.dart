@@ -239,7 +239,30 @@ class _UsersPageState extends State<UsersPage> {
                   children: [
                     AdminNavigationTabs(
                       selectedTab: AdminTab.users,
-                      onTabSelected: (tab) {},
+                      onTabSelected: (tab) {
+                        switch (tab) {
+                          case AdminTab.users:
+                            break;
+
+                          case AdminTab.publishers:
+                            Navigator.of(context).pushReplacementNamed(
+                              AppRoutes.publishersPage,
+                            );
+                            break;
+
+                          case AdminTab.books:
+                            Navigator.of(context).pushReplacementNamed(
+                              AppRoutes.booksPage,
+                            );
+                            break;
+
+                          case AdminTab.rentals:
+                              Navigator.of(context).pushReplacementNamed(
+                              AppRoutes.rentalsPage,
+                            );
+                            break;
+                        }
+                      },
                     ),
                     SizedBox(height: isMobile ? 16 : 24),
                     AdminSearchBar(

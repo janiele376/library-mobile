@@ -437,4 +437,193 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get save => 'Salvar';
+
+  @override
+  String get cnpj => 'CNPJ';
+
+  @override
+  String get publisherName => 'Nome da editora';
+
+  @override
+  String get bookTitle => 'Título do livro';
+
+  @override
+  String get bookIsbn => 'ISBN';
+
+  @override
+  String get bookGenre => 'Gênero';
+
+  @override
+  String get bookPublisher => 'Editora';
+
+  @override
+  String get bookReleaseDate => 'Data de lançamento';
+
+  @override
+  String get bookQuantity => 'Quantidade';
+
+  @override
+  String get bookCreateTitle => 'Cadastrar livro';
+
+  @override
+  String get bookEditTitle => 'Editar livro';
+
+  @override
+  String get bookDeleteTitle => 'Excluir livro';
+
+  @override
+  String get bookDeleteConfirmation =>
+      'Tem certeza de que deseja excluir este livro?';
+
+  @override
+  String get bookSearchHint => 'Pesquisar por título, gênero ou ISBN';
+
+  @override
+  String get bookLoadError => 'Não foi possível carregar os livros.';
+
+  @override
+  String get bookCreateSuccess => 'Livro cadastrado com sucesso!';
+
+  @override
+  String get bookUpdateSuccess => 'Livro atualizado com sucesso!';
+
+  @override
+  String get bookDeleteSuccess => 'Livro excluído com sucesso.';
+
+  @override
+  String get bookPublisherRequired => 'Selecione uma editora.';
+
+  @override
+  String get bookQuantityRequired => 'Informe a quantidade.';
+
+  @override
+  String get bookQuantityInvalid => 'A quantidade não pode ser negativa.';
+
+  @override
+  String get noResults => 'Nenhum livro encontrado.';
+
+  @override
+  String get rentalTitle => 'Aluguel';
+
+  @override
+  String get rentalUser => 'Usuário';
+
+  @override
+  String get rentalBook => 'Livro';
+
+  @override
+  String get rentalStartDate => 'Data de início';
+
+  @override
+  String get rentalEndDate => 'Data de devolução';
+
+  @override
+  String get rentalStatus => 'Status';
+
+  @override
+  String get rentalCreateTitle => 'Cadastrar aluguel';
+
+  @override
+  String get rentalEditTitle => 'Editar aluguel';
+
+  @override
+  String get rentalDeleteTitle => 'Excluir aluguel';
+
+  @override
+  String get rentalDeleteConfirmation =>
+      'Tem certeza de que deseja excluir este aluguel?';
+
+  @override
+  String get rentalSearchHint => 'Pesquisar por usuário ou livro...';
+
+  @override
+  String get rentalLoadError => 'Erro ao carregar aluguéis.';
+
+  @override
+  String get rentalCreateSuccess => 'Aluguel cadastrado com sucesso!';
+
+  @override
+  String get rentalUpdateSuccess => 'Aluguel atualizado com sucesso!';
+
+  @override
+  String get rentalDeleteSuccess => 'Aluguel excluído com sucesso!';
+
+  @override
+  String get rentalRenewSuccess => 'Aluguel renovado com sucesso!';
+
+  @override
+  String get rentalReturnSuccess => 'Livro devolvido com sucesso!';
+
+  @override
+  String get rentalUserRequired => 'Selecione um usuário.';
+
+  @override
+  String get rentalBookRequired => 'Selecione um livro.';
+
+  @override
+  String get rentalRenewConfirmation => 'Deseja renovar este aluguel?';
+
+  @override
+  String get rentalReturnConfirmation =>
+      'Deseja confirmar a devolução deste livro?';
+
+  @override
+  String get rentalNoResults => 'Nenhum aluguel encontrado.';
+
+  @override
+  String get rentalStatusActive => 'Ativo';
+
+  @override
+  String get rentalStatusDueSoon => 'Próximo do vencimento';
+
+  @override
+  String get rentalStatusLate => 'Atrasado';
+
+  @override
+  String get rentalStatusReturned => 'Devolvido';
+
+  @override
+  String get userDeleteTitle => 'Excluir usuário';
+
+  @override
+  String get userDeleteConfirmation =>
+      'Tem certeza de que deseja excluir este usuário?';
+
+  @override
+  String get userDeleteIrreversible => 'Essa ação não poderá ser desfeita.';
+
+  @override
+  String get rentalEditSubtitle => 'Altere o usuário ou o livro do aluguel';
+
+  @override
+  String get close => 'Fechar';
+
+  @override
+  String get rentalDeleteIrreversible => 'Essa ação não poderá ser desfeita.';
+
+  @override
+  String get rentalCreateSubtitle => 'Selecione o usuário e o livro';
+
+  @override
+  String get bookDeleteIrreversible => 'Essa ação não poderá ser desfeita.';
+
+  @override
+  String get bookCreateSubtitle => 'Preencha os dados do novo livro';
+
+  @override
+  String get publisherCreateTitle => 'Cadastrar editora';
+
+  @override
+  String get publisherCreateSubtitle => 'Preencha os dados da nova editora';
+
+  @override
+  String get publisherDeleteTitle => 'Excluir editora';
+
+  @override
+  String get publisherDeleteConfirmation =>
+      'Tem certeza de que deseja excluir esta editora?';
+
+  @override
+  String get publisherDeleteIrreversible =>
+      'Essa ação não poderá ser desfeita.';
 }

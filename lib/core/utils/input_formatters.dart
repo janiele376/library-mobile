@@ -8,6 +8,10 @@ class AppInputFormatters {
         type: _MaskType.cpf,
       );
 
+  static TextInputFormatter get cnpj => _MaskFormatter(
+        type: _MaskType.cnpj,
+      );
+
   static TextInputFormatter get phone => _MaskFormatter(
         type: _MaskType.phone,
       );
@@ -15,10 +19,14 @@ class AppInputFormatters {
   static TextInputFormatter get date => _MaskFormatter(
         type: _MaskType.date,
       );
+
+  static LengthLimitingTextInputFormatter get isbn =>
+      LengthLimitingTextInputFormatter(13);
 }
 
 enum _MaskType {
   cpf,
+  cnpj,
   phone,
   date,
 }
@@ -38,7 +46,11 @@ class _MaskFormatter extends TextInputFormatter {
       '',
     );
 
-    final maxLength = type == _MaskType.date ? 8 : 11;
+    final maxLength = switch (type) {
+      _MaskType.date => 8,
+      _MaskType.cnpj => 14,
+      _ => 11,
+    };
 
     final limited = digits.length > maxLength
         ? digits.substring(0, maxLength)
@@ -57,6 +69,7 @@ class _MaskFormatter extends TextInputFormatter {
 
     final formatted = switch (type) {
       _MaskType.cpf => _formatCpf(limited),
+      _MaskType.cnpj => _formatCnpj(limited),
       _MaskType.phone => _formatPhone(limited),
       _MaskType.date => _formatDate(limited),
     };
@@ -69,6 +82,7 @@ class _MaskFormatter extends TextInputFormatter {
       if (RegExp(r'\d').hasMatch(formatted[newCursor])) {
         digitCount++;
       }
+
       newCursor++;
     }
 
@@ -91,6 +105,21 @@ class _MaskFormatter extends TextInputFormatter {
     for (int i = 0; i < digits.length; i++) {
       if (i == 3 || i == 6) buffer.write('.');
       if (i == 9) buffer.write('-');
+
+      buffer.write(digits[i]);
+    }
+
+    return buffer.toString();
+  }
+
+  String _formatCnpj(String digits) {
+    final buffer = StringBuffer();
+
+    for (int i = 0; i < digits.length; i++) {
+      if (i == 2 || i == 5) buffer.write('.');
+      if (i == 8) buffer.write('/');
+      if (i == 12) buffer.write('-');
+
       buffer.write(digits[i]);
     }
 
@@ -122,6 +151,7 @@ class _MaskFormatter extends TextInputFormatter {
 
     for (int i = 0; i < digits.length; i++) {
       if (i == 2 || i == 4) buffer.write('/');
+
       buffer.write(digits[i]);
     }
 

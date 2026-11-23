@@ -54,16 +54,6 @@ class AdminSearchBar extends StatelessWidget {
               ),
             ),
           ),
-          IconButton(
-            onPressed: onFilterPressed,
-            tooltip: l10n.filters,
-            icon: Icon(
-              Icons.tune,
-              size: 18,
-              color: colors.onSurfaceVariant,
-            ),
-            visualDensity: VisualDensity.compact,
-          ),
           const SizedBox(width: 10),
         ],
       ),

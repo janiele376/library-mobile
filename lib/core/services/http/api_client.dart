@@ -86,6 +86,23 @@ class ApiClient {
     ).timeout(const Duration(seconds: 10));
   }
 
+  static Future<http.Response> patch(
+    String endpoint, {
+    Map<String, dynamic>? body,
+    Map<String, String>? headers,
+    bool authenticated = false,
+  }) async {
+    return _client.patch(
+      Uri.parse('${ApiConfig.baseUrl}$endpoint'),
+      headers: await _buildHeaders(
+        headers: headers,
+        authenticated: authenticated,
+        hasBody: true,
+      ),
+      body: jsonEncode(body ?? {}),
+    ).timeout(const Duration(seconds: 10));
+  }
+
   static Future<http.Response> delete(
     String endpoint, {
     Map<String, String>? headers,

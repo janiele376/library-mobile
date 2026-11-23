@@ -22,6 +22,7 @@ class ProfileActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final colors = Theme.of(context).colorScheme;
 
     if (!isEditing) {
       return SizedBox(
@@ -30,6 +31,10 @@ class ProfileActionButtons extends StatelessWidget {
           onPressed: onEdit,
           icon: const Icon(Icons.edit_outlined),
           label: Text(l10n.editInformation),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: colors.primary,
+            foregroundColor: colors.onPrimary,
+          ),
         ),
       );
     }
@@ -45,6 +50,10 @@ class ProfileActionButtons extends StatelessWidget {
         const SizedBox(width: 12),
         Expanded(
           child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: colors.primary,
+              foregroundColor: colors.onPrimary,
+            ),
             onPressed: isSaving ? null : onConfirm,
             child: isSaving
                 ? const SizedBox(
@@ -55,6 +64,7 @@ class ProfileActionButtons extends StatelessWidget {
                     ),
                   )
                 : Text(l10n.confirm),
+            
           ),
         ),
       ],

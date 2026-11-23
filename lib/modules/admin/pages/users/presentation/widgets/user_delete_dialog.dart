@@ -70,7 +70,7 @@ class UserDeleteDialog extends StatelessWidget {
               const SizedBox(height: 18),
 
               Text(
-                'Excluir usuário',
+                l10n.userDeleteTitle,
                 textAlign: TextAlign.center,
                 style: theme.textTheme.titleLarge?.copyWith(
                   color: colors.onSurface,
@@ -81,7 +81,7 @@ class UserDeleteDialog extends StatelessWidget {
               const SizedBox(height: 10),
 
               Text(
-                'Tem certeza de que deseja excluir este usuário?',
+                l10n.userDeleteConfirmation,
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: colors.onSurfaceVariant,
@@ -125,7 +125,7 @@ class UserDeleteDialog extends StatelessWidget {
               const SizedBox(height: 14),
 
               Text(
-                'Essa ação não poderá ser desfeita.',
+                l10n.userDeleteIrreversible,
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: colors.error,

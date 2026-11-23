@@ -927,6 +927,372 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Salvar'**
   String get save;
+
+  /// No description provided for @cnpj.
+  ///
+  /// In pt, this message translates to:
+  /// **'CNPJ'**
+  String get cnpj;
+
+  /// No description provided for @publisherName.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome da editora'**
+  String get publisherName;
+
+  /// No description provided for @bookTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Título do livro'**
+  String get bookTitle;
+
+  /// No description provided for @bookIsbn.
+  ///
+  /// In pt, this message translates to:
+  /// **'ISBN'**
+  String get bookIsbn;
+
+  /// No description provided for @bookGenre.
+  ///
+  /// In pt, this message translates to:
+  /// **'Gênero'**
+  String get bookGenre;
+
+  /// No description provided for @bookPublisher.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editora'**
+  String get bookPublisher;
+
+  /// No description provided for @bookReleaseDate.
+  ///
+  /// In pt, this message translates to:
+  /// **'Data de lançamento'**
+  String get bookReleaseDate;
+
+  /// No description provided for @bookQuantity.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quantidade'**
+  String get bookQuantity;
+
+  /// No description provided for @bookCreateTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cadastrar livro'**
+  String get bookCreateTitle;
+
+  /// No description provided for @bookEditTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar livro'**
+  String get bookEditTitle;
+
+  /// No description provided for @bookDeleteTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir livro'**
+  String get bookDeleteTitle;
+
+  /// No description provided for @bookDeleteConfirmation.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tem certeza de que deseja excluir este livro?'**
+  String get bookDeleteConfirmation;
+
+  /// No description provided for @bookSearchHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pesquisar por título, gênero ou ISBN'**
+  String get bookSearchHint;
+
+  /// No description provided for @bookLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível carregar os livros.'**
+  String get bookLoadError;
+
+  /// No description provided for @bookCreateSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Livro cadastrado com sucesso!'**
+  String get bookCreateSuccess;
+
+  /// No description provided for @bookUpdateSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Livro atualizado com sucesso!'**
+  String get bookUpdateSuccess;
+
+  /// No description provided for @bookDeleteSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Livro excluído com sucesso.'**
+  String get bookDeleteSuccess;
+
+  /// No description provided for @bookPublisherRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Selecione uma editora.'**
+  String get bookPublisherRequired;
+
+  /// No description provided for @bookQuantityRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe a quantidade.'**
+  String get bookQuantityRequired;
+
+  /// No description provided for @bookQuantityInvalid.
+  ///
+  /// In pt, this message translates to:
+  /// **'A quantidade não pode ser negativa.'**
+  String get bookQuantityInvalid;
+
+  /// No description provided for @noResults.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum livro encontrado.'**
+  String get noResults;
+
+  /// No description provided for @rentalTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aluguel'**
+  String get rentalTitle;
+
+  /// No description provided for @rentalUser.
+  ///
+  /// In pt, this message translates to:
+  /// **'Usuário'**
+  String get rentalUser;
+
+  /// No description provided for @rentalBook.
+  ///
+  /// In pt, this message translates to:
+  /// **'Livro'**
+  String get rentalBook;
+
+  /// No description provided for @rentalStartDate.
+  ///
+  /// In pt, this message translates to:
+  /// **'Data de início'**
+  String get rentalStartDate;
+
+  /// No description provided for @rentalEndDate.
+  ///
+  /// In pt, this message translates to:
+  /// **'Data de devolução'**
+  String get rentalEndDate;
+
+  /// No description provided for @rentalStatus.
+  ///
+  /// In pt, this message translates to:
+  /// **'Status'**
+  String get rentalStatus;
+
+  /// No description provided for @rentalCreateTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cadastrar aluguel'**
+  String get rentalCreateTitle;
+
+  /// No description provided for @rentalEditTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar aluguel'**
+  String get rentalEditTitle;
+
+  /// No description provided for @rentalDeleteTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir aluguel'**
+  String get rentalDeleteTitle;
+
+  /// No description provided for @rentalDeleteConfirmation.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tem certeza de que deseja excluir este aluguel?'**
+  String get rentalDeleteConfirmation;
+
+  /// No description provided for @rentalSearchHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pesquisar por usuário ou livro...'**
+  String get rentalSearchHint;
+
+  /// No description provided for @rentalLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao carregar aluguéis.'**
+  String get rentalLoadError;
+
+  /// No description provided for @rentalCreateSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aluguel cadastrado com sucesso!'**
+  String get rentalCreateSuccess;
+
+  /// No description provided for @rentalUpdateSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aluguel atualizado com sucesso!'**
+  String get rentalUpdateSuccess;
+
+  /// No description provided for @rentalDeleteSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aluguel excluído com sucesso!'**
+  String get rentalDeleteSuccess;
+
+  /// No description provided for @rentalRenewSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aluguel renovado com sucesso!'**
+  String get rentalRenewSuccess;
+
+  /// No description provided for @rentalReturnSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Livro devolvido com sucesso!'**
+  String get rentalReturnSuccess;
+
+  /// No description provided for @rentalUserRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Selecione um usuário.'**
+  String get rentalUserRequired;
+
+  /// No description provided for @rentalBookRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Selecione um livro.'**
+  String get rentalBookRequired;
+
+  /// No description provided for @rentalRenewConfirmation.
+  ///
+  /// In pt, this message translates to:
+  /// **'Deseja renovar este aluguel?'**
+  String get rentalRenewConfirmation;
+
+  /// No description provided for @rentalReturnConfirmation.
+  ///
+  /// In pt, this message translates to:
+  /// **'Deseja confirmar a devolução deste livro?'**
+  String get rentalReturnConfirmation;
+
+  /// No description provided for @rentalNoResults.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum aluguel encontrado.'**
+  String get rentalNoResults;
+
+  /// No description provided for @rentalStatusActive.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ativo'**
+  String get rentalStatusActive;
+
+  /// No description provided for @rentalStatusDueSoon.
+  ///
+  /// In pt, this message translates to:
+  /// **'Próximo do vencimento'**
+  String get rentalStatusDueSoon;
+
+  /// No description provided for @rentalStatusLate.
+  ///
+  /// In pt, this message translates to:
+  /// **'Atrasado'**
+  String get rentalStatusLate;
+
+  /// No description provided for @rentalStatusReturned.
+  ///
+  /// In pt, this message translates to:
+  /// **'Devolvido'**
+  String get rentalStatusReturned;
+
+  /// No description provided for @userDeleteTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir usuário'**
+  String get userDeleteTitle;
+
+  /// No description provided for @userDeleteConfirmation.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tem certeza de que deseja excluir este usuário?'**
+  String get userDeleteConfirmation;
+
+  /// No description provided for @userDeleteIrreversible.
+  ///
+  /// In pt, this message translates to:
+  /// **'Essa ação não poderá ser desfeita.'**
+  String get userDeleteIrreversible;
+
+  /// No description provided for @rentalEditSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Altere o usuário ou o livro do aluguel'**
+  String get rentalEditSubtitle;
+
+  /// No description provided for @close.
+  ///
+  /// In pt, this message translates to:
+  /// **'Fechar'**
+  String get close;
+
+  /// No description provided for @rentalDeleteIrreversible.
+  ///
+  /// In pt, this message translates to:
+  /// **'Essa ação não poderá ser desfeita.'**
+  String get rentalDeleteIrreversible;
+
+  /// No description provided for @rentalCreateSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Selecione o usuário e o livro'**
+  String get rentalCreateSubtitle;
+
+  /// No description provided for @bookDeleteIrreversible.
+  ///
+  /// In pt, this message translates to:
+  /// **'Essa ação não poderá ser desfeita.'**
+  String get bookDeleteIrreversible;
+
+  /// No description provided for @bookCreateSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Preencha os dados do novo livro'**
+  String get bookCreateSubtitle;
+
+  /// No description provided for @publisherCreateTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cadastrar editora'**
+  String get publisherCreateTitle;
+
+  /// No description provided for @publisherCreateSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Preencha os dados da nova editora'**
+  String get publisherCreateSubtitle;
+
+  /// No description provided for @publisherDeleteTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir editora'**
+  String get publisherDeleteTitle;
+
+  /// No description provided for @publisherDeleteConfirmation.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tem certeza de que deseja excluir esta editora?'**
+  String get publisherDeleteConfirmation;
+
+  /// No description provided for @publisherDeleteIrreversible.
+  ///
+  /// In pt, this message translates to:
+  /// **'Essa ação não poderá ser desfeita.'**
+  String get publisherDeleteIrreversible;
 }
 
 class _AppLocalizationsDelegate

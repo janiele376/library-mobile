@@ -435,4 +435,193 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get save => 'Save';
+
+  @override
+  String get cnpj => 'CNPJ';
+
+  @override
+  String get publisherName => 'Publisher name';
+
+  @override
+  String get bookTitle => 'Book title';
+
+  @override
+  String get bookIsbn => 'ISBN';
+
+  @override
+  String get bookGenre => 'Genre';
+
+  @override
+  String get bookPublisher => 'Publisher';
+
+  @override
+  String get bookReleaseDate => 'Release date';
+
+  @override
+  String get bookQuantity => 'Quantity';
+
+  @override
+  String get bookCreateTitle => 'Register book';
+
+  @override
+  String get bookEditTitle => 'Edit book';
+
+  @override
+  String get bookDeleteTitle => 'Delete book';
+
+  @override
+  String get bookDeleteConfirmation =>
+      'Are you sure you want to delete this book?';
+
+  @override
+  String get bookSearchHint => 'Search by title, genre or ISBN';
+
+  @override
+  String get bookLoadError => 'Could not load books.';
+
+  @override
+  String get bookCreateSuccess => 'Book registered successfully!';
+
+  @override
+  String get bookUpdateSuccess => 'Book updated successfully!';
+
+  @override
+  String get bookDeleteSuccess => 'Book deleted successfully.';
+
+  @override
+  String get bookPublisherRequired => 'Select a publisher.';
+
+  @override
+  String get bookQuantityRequired => 'Enter the quantity.';
+
+  @override
+  String get bookQuantityInvalid => 'Quantity cannot be negative.';
+
+  @override
+  String get noResults => 'No books found.';
+
+  @override
+  String get rentalTitle => 'Rental';
+
+  @override
+  String get rentalUser => 'User';
+
+  @override
+  String get rentalBook => 'Book';
+
+  @override
+  String get rentalStartDate => 'Start date';
+
+  @override
+  String get rentalEndDate => 'Return date';
+
+  @override
+  String get rentalStatus => 'Status';
+
+  @override
+  String get rentalCreateTitle => 'Create rental';
+
+  @override
+  String get rentalEditTitle => 'Edit rental';
+
+  @override
+  String get rentalDeleteTitle => 'Delete rental';
+
+  @override
+  String get rentalDeleteConfirmation =>
+      'Are you sure you want to delete this rental?';
+
+  @override
+  String get rentalSearchHint => 'Search by user or book...';
+
+  @override
+  String get rentalLoadError => 'Error loading rentals.';
+
+  @override
+  String get rentalCreateSuccess => 'Rental created successfully!';
+
+  @override
+  String get rentalUpdateSuccess => 'Rental updated successfully!';
+
+  @override
+  String get rentalDeleteSuccess => 'Rental deleted successfully!';
+
+  @override
+  String get rentalRenewSuccess => 'Rental renewed successfully!';
+
+  @override
+  String get rentalReturnSuccess => 'Book returned successfully!';
+
+  @override
+  String get rentalUserRequired => 'Select a user.';
+
+  @override
+  String get rentalBookRequired => 'Select a book.';
+
+  @override
+  String get rentalRenewConfirmation => 'Do you want to renew this rental?';
+
+  @override
+  String get rentalReturnConfirmation =>
+      'Do you want to confirm the return of this book?';
+
+  @override
+  String get rentalNoResults => 'No rentals found.';
+
+  @override
+  String get rentalStatusActive => 'Active';
+
+  @override
+  String get rentalStatusDueSoon => 'Due soon';
+
+  @override
+  String get rentalStatusLate => 'Overdue';
+
+  @override
+  String get rentalStatusReturned => 'Returned';
+
+  @override
+  String get userDeleteTitle => 'Delete user';
+
+  @override
+  String get userDeleteConfirmation =>
+      'Are you sure you want to delete this user?';
+
+  @override
+  String get userDeleteIrreversible => 'This action cannot be undone.';
+
+  @override
+  String get rentalEditSubtitle =>
+      'Change the user or book associated with the rental';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get rentalDeleteIrreversible => 'This action cannot be undone.';
+
+  @override
+  String get rentalCreateSubtitle => 'Select the user and the book';
+
+  @override
+  String get bookDeleteIrreversible => 'This action cannot be undone.';
+
+  @override
+  String get bookCreateSubtitle => 'Fill in the new book details';
+
+  @override
+  String get publisherCreateTitle => 'Register publisher';
+
+  @override
+  String get publisherCreateSubtitle => 'Fill in the new publisher details';
+
+  @override
+  String get publisherDeleteTitle => 'Delete publisher';
+
+  @override
+  String get publisherDeleteConfirmation =>
+      'Are you sure you want to delete this publisher?';
+
+  @override
+  String get publisherDeleteIrreversible => 'This action cannot be undone.';
 }
