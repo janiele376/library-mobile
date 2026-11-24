@@ -9,8 +9,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
   final AppMenuPage? selectedPage;
   final bool isAdmin;
   final VoidCallback? onDashboard;
-  final VoidCallback? onAccessibility;
-  final VoidCallback? onProfile;
+  final VoidCallback? onSettings;
   final VoidCallback? onAdminArea;
   final VoidCallback? onLogout;
 
@@ -20,8 +19,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     this.selectedPage,
     this.isAdmin = false,
     this.onDashboard,
-    this.onAccessibility,
-    this.onProfile,
+    this.onSettings,
     this.onAdminArea,
     this.onLogout,
   });
@@ -32,9 +30,9 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     final l10n = AppLocalizations.of(context)!;
 
     final hasMenu = onDashboard != null &&
-        onAccessibility != null &&
+        onSettings != null &&
         onLogout != null &&
-        (isAdmin ? (onAdminArea != null || onProfile != null) : onProfile != null);
+        (!isAdmin || onAdminArea != null);
 
     return AppBar(
       backgroundColor: colors.surface,
@@ -67,17 +65,13 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
                       Navigator.of(menuContext).pop();
                       onDashboard?.call();
                     },
-                    onAccessibility: () {
+                    onSettings: () {
                       Navigator.of(menuContext).pop();
-                      onAccessibility?.call();
-                    },
-                    onProfile: () {
-                      Navigator.of(menuContext).pop();
-                      onProfile?.call();
+                      onSettings?.call();
                     },
                     onAdminArea: () {
                       Navigator.of(menuContext).pop();
-                      (onAdminArea ?? onProfile)?.call();
+                      onAdminArea?.call();
                     },
                     onLogout: () {
                       Navigator.of(menuContext).pop();

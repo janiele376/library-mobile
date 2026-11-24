@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:library_mobile/l10n/app_localizations.dart';
 
 enum AppMenuPage {
   dashboard,
-  accessibility,
-  profile,
+  settings,
   adminArea,
 }
 
@@ -12,8 +12,7 @@ class AppMenu extends StatelessWidget {
   final AppMenuPage? selectedPage;
   final bool isAdmin;
   final VoidCallback onDashboard;
-  final VoidCallback onAccessibility;
-  final VoidCallback onProfile;
+  final VoidCallback onSettings;
   final VoidCallback? onAdminArea;
   final VoidCallback onLogout;
 
@@ -22,13 +21,14 @@ class AppMenu extends StatelessWidget {
     this.selectedPage,
     this.isAdmin = false,
     required this.onDashboard,
-    required this.onAccessibility,
-    required this.onProfile,
+    required this.onSettings,
     this.onAdminArea,
     required this.onLogout,
   });
 
   Future<void> _confirmLogout(BuildContext context) async {
+    final l10n = AppLocalizations.of(context)!;
+
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) {
@@ -41,7 +41,7 @@ class AppMenu extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
           title: Text(
-            'Deseja Sair do Sistema?',
+            l10n.logoutConfirmation,
             textAlign: TextAlign.center,
             style: theme.textTheme.titleMedium?.copyWith(
               color: colors.onSurface,
@@ -58,9 +58,9 @@ class AppMenu extends StatelessWidget {
               onPressed: () {
                 Navigator.of(dialogContext).pop(true);
               },
-              child: const Text(
-                'CONFIRMAR',
-                style: TextStyle(
+              child: Text(
+                l10n.confirm,
+                style: const TextStyle(
                   fontFamily: 'serif',
                   fontSize: 11,
                 ),
@@ -74,9 +74,9 @@ class AppMenu extends StatelessWidget {
               onPressed: () {
                 Navigator.of(dialogContext).pop(false);
               },
-              child: const Text(
-                'CANCELAR',
-                style: TextStyle(
+              child: Text(
+                l10n.cancel,
+                style: const TextStyle(
                   fontFamily: 'serif',
                   fontSize: 11,
                 ),
@@ -97,23 +97,13 @@ class AppMenu extends StatelessWidget {
     required String title,
     required VoidCallback onTap,
     required bool selected,
-    required bool alternate,
     bool logout = false,
   }) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
 
-    final backgroundColor = selected
-        ? colors.primary
-        : alternate
-            ? colors.tertiary
-            : colors.secondary;
-
-    final foregroundColor = selected
-        ? colors.onPrimary
-        : alternate
-            ? colors.onPrimary
-            : colors.onSurface;
+    final backgroundColor = selected ? colors.primary : colors.tertiary;
+    final foregroundColor = colors.onPrimary;
 
     return Material(
       color: backgroundColor,
@@ -130,9 +120,8 @@ class AppMenu extends StatelessWidget {
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: foregroundColor,
                   fontFamily: 'serif',
-                  fontWeight: selected
-                      ? FontWeight.w600
-                      : FontWeight.normal,
+                  fontWeight:
+                      selected ? FontWeight.w600 : FontWeight.normal,
                 ),
               ),
               if (logout) ...[
@@ -154,6 +143,7 @@ class AppMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return Container(
       width: 220,
@@ -186,7 +176,7 @@ class AppMenu extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'MENU',
+                  l10n.menuTitle,
                   style: theme.textTheme.titleSmall?.copyWith(
                     color: colors.onPrimary,
                     fontFamily: 'serif',
@@ -198,39 +188,27 @@ class AppMenu extends StatelessWidget {
           ),
           _menuItem(
             context: context,
-            title: 'Dashboard',
+            title: l10n.dashboardTitle,
             selected: selectedPage == AppMenuPage.dashboard,
-            alternate: true,
             onTap: onDashboard,
           ),
-          _menuItem(
-            context: context,
-            title: 'Acessibilidade',
-            selected: selectedPage == AppMenuPage.accessibility,
-            alternate: true,
-            onTap: onAccessibility,
-          ),
-          if (isAdmin)
+          if (isAdmin && onAdminArea != null)
             _menuItem(
               context: context,
-              title: 'Área do ADM',
+              title: l10n.adminAreaTitle,
               selected: selectedPage == AppMenuPage.adminArea,
-              alternate: true,
-              onTap: onAdminArea ?? onProfile,
-            )
-          else
-            _menuItem(
-              context: context,
-              title: 'Perfil',
-              selected: selectedPage == AppMenuPage.profile,
-              alternate: true,
-              onTap: onProfile,
+              onTap: onAdminArea!,
             ),
           _menuItem(
             context: context,
-            title: 'Sair',
+            title: l10n.settingsTitle,
+            selected: selectedPage == AppMenuPage.settings,
+            onTap: onSettings,
+          ),
+          _menuItem(
+            context: context,
+            title: l10n.logout,
             selected: false,
-            alternate: true,
             onTap: () => _confirmLogout(context),
             logout: true,
           ),

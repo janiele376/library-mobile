@@ -15,6 +15,7 @@ class CustomTextField extends StatelessWidget {
   final VoidCallback? onTap;
   final String? Function(String?)? validator;
   final List<TextInputFormatter>? inputFormatters;
+  final TextCapitalization textCapitalization;
 
   const CustomTextField({
     super.key,
@@ -28,6 +29,7 @@ class CustomTextField extends StatelessWidget {
     this.onTap,
     this.validator,
     this.inputFormatters,
+    this.textCapitalization = TextCapitalization.none,
   });
 
   @override
@@ -130,6 +132,7 @@ class CustomTextField extends StatelessWidget {
                 ),
               ),
               validator: validator,
+              textCapitalization: textCapitalization,
             ),
           ),
         ],

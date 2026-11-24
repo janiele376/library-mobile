@@ -50,23 +50,9 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
     _controller.loadDashboard();
   }
 
-  void _openAccessibility() {
-    final l10n = AppLocalizations.of(context)!;
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(l10n.dashboardAccessibilityUnavailable),
-      ),
-    );
-  }
-
   void _openAdminArea() {
-    final l10n = AppLocalizations.of(context)!;
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(l10n.dashboardAdminAreaUnavailable),
-      ),
+    Navigator.of(context).pushReplacementNamed(
+      AppRoutes.usersPage,
     );
   }
 
@@ -130,7 +116,11 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
           ),
           const SizedBox(height: 8),
           TextButton(
-            onPressed: null,
+            onPressed: (){
+              Navigator.of(context).pushNamed(
+                AppRoutes.rentalsPage,
+              );
+            },
             style: TextButton.styleFrom(
               backgroundColor: colors.primary,
               foregroundColor: colors.onPrimary,
@@ -301,7 +291,9 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> {
         selectedPage: AppMenuPage.dashboard,
         isAdmin: true,
         onDashboard: _openDashboard,
-        onAccessibility: _openAccessibility,
+        onSettings: () {
+          Navigator.of(context).pushNamed(AppRoutes.settings);
+        },
         onAdminArea: _openAdminArea,
         onLogout: _logout,
       ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/services/auth/session_service.dart';
 import '../../../../core/services/routes/app_routes.dart';
-import '../../../../core/utils/date_formatter.dart';
+import '../../../../core/utils/app_formatter.dart';
 import '../../../../core/widgets/app_header.dart';
 import '../../../../core/widgets/app_menu.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -53,26 +53,6 @@ class _UserDashboardPageState extends State<UserDashboardPage> {
     _controller.loadDashboard();
   }
 
-  void _openAccessibility() {
-    final l10n = AppLocalizations.of(context)!;
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(l10n.dashboardAccessibilityUnavailable),
-      ),
-    );
-  }
-
-  void _openProfile() {
-    final l10n = AppLocalizations.of(context)!;
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(l10n.dashboardProfileUnavailable),
-      ),
-    );
-  }
-
   String _statusLabel(String status) {
     final l10n = AppLocalizations.of(context)!;
 
@@ -102,7 +82,7 @@ class _UserDashboardPageState extends State<UserDashboardPage> {
                   DashboardRentalCard(
                     rental: dashboard.lastRentals[i],
                     index: i + 1,
-                    formatDate: DateFormatter.format,
+                    formatDate: AppFormatters.formatDate,
                     statusLabel: _statusLabel,
                   ),
               ],
@@ -250,8 +230,9 @@ class _UserDashboardPageState extends State<UserDashboardPage> {
       appBar: AppHeader(
         selectedPage: AppMenuPage.dashboard,
         onDashboard: _openDashboard,
-        onAccessibility: _openAccessibility,
-        onProfile: _openProfile,
+        onSettings: () {
+          Navigator.of(context).pushNamed(AppRoutes.settings);
+        },
         onLogout: _logout,
       ),
       body: ListenableBuilder(
