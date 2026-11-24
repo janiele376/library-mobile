@@ -1,6 +1,4 @@
 
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 import '../../../../../../l10n/app_localizations.dart';
@@ -12,8 +10,8 @@ import '../../../../widgets/admin_list_container.dart';
 import '../../../../widgets/admin_navigation_tabs.dart';
 import '../../../../widgets/admin_pagination.dart';
 import '../../../../widgets/admin_search_bar.dart';
+import '../../controllers/users_page_controller.dart';
 import '../../models/user_model.dart';
-import '../../services/user_service.dart';
 import '../widgets/user_delete_dialog.dart';
 import '../widgets/user_edit_dialog.dart';
 import '../widgets/user_list_item.dart';
@@ -26,28 +24,27 @@ class UsersPage extends StatefulWidget {
 }
 
 class _UsersPageState extends State<UsersPage> {
-  List<UserModel> _users = [];
-
-  bool _isLoading = true;
-  String? _errorMessage;
-
-  String _search = '';
-  int _currentPage = 1;
-  int _totalPages = 1;
-
-  Timer? _searchDebounce;
-
-  static const int _pageSize = 5;
+  late final UsersPageController _controller;
 
   @override
   void initState() {
     super.initState();
-    _loadUsers();
+
+    _controller = UsersPageController();
+    _controller.addListener(_onControllerChanged);
+    _controller.loadUsers();
+  }
+
+  void _onControllerChanged() {
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
   void dispose() {
-    _searchDebounce?.cancel();
+    _controller.removeListener(_onControllerChanged);
+    _controller.dispose();
     super.dispose();
   }
 
@@ -76,78 +73,21 @@ class _UsersPageState extends State<UsersPage> {
 
   void _openAdminArea() {}
 
-  Future<void> _loadUsers() async {
-    if (!mounted) return;
-
-    setState(() {
-      _isLoading = true;
-      _errorMessage = null;
-    });
-
-    try {
-      final result = await UserService.getUsers(
-        nameCompleted: _search,
-        page: _currentPage - 1,
-        size: _pageSize,
-      );
-
-      if (!mounted) return;
-
-      setState(() {
-        _users = result.content;
-        _totalPages = result.totalPages < 1 ? 1 : result.totalPages;
-        _currentPage = result.currentPage + 1;
-        _isLoading = false;
-      });
-    } catch (error) {
-      if (!mounted) return;
-
-      setState(() {
-        _errorMessage = error.toString();
-        _isLoading = false;
-      });
-    }
-  }
-
-  void _onSearchChanged(String value) {
-    _search = value;
-    _currentPage = 1;
-
-    _searchDebounce?.cancel();
-
-    _searchDebounce = Timer(
-      const Duration(milliseconds: 400),
-      _loadUsers,
-    );
-  }
-
-  void _onPageChanged(int page) {
-    if (page < 1 || page > _totalPages) return;
-
-    setState(() {
-      _currentPage = page;
-    });
-
-    _loadUsers();
-  }
-
   Future<void> _editUser(UserModel user) async {
+    final l10n = AppLocalizations.of(context)!;
+
     await UserEditDialog.show(
       context: context,
       user: user,
       onSave: (updatedUser) async {
         try {
-          await UserService.updateUser(updatedUser);
-
-          if (!mounted) return;
-
-          await _loadUsers();
+          await _controller.updateUser(updatedUser);
 
           if (!mounted) return;
 
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Usuário atualizado com sucesso!'),
+            SnackBar(
+              content: Text(l10n.userUpdateSuccess),
               behavior: SnackBarBehavior.floating,
             ),
           );
@@ -156,7 +96,7 @@ class _UsersPageState extends State<UsersPage> {
 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Erro ao atualizar usuário: $error'),
+              content: Text(l10n.userUpdateError(error.toString())),
               behavior: SnackBarBehavior.floating,
             ),
           );
@@ -166,26 +106,20 @@ class _UsersPageState extends State<UsersPage> {
   }
 
   Future<void> _deleteUser(UserModel user) async {
+    final l10n = AppLocalizations.of(context)!;
+
     await UserDeleteDialog.show(
       context: context,
       userName: user.nameCompleted,
       onConfirm: () async {
         try {
-          await UserService.deleteUser(user.id);
-
-          if (!mounted) return;
-
-          if (_users.length == 1 && _currentPage > 1) {
-            _currentPage--;
-          }
-
-          await _loadUsers();
+          await _controller.deleteUser(user.id);
 
           if (!mounted) return;
 
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Usuário excluído com sucesso!'),
+            SnackBar(
+              content: Text(l10n.userDeleteSuccess),
               behavior: SnackBarBehavior.floating,
             ),
           );
@@ -194,7 +128,7 @@ class _UsersPageState extends State<UsersPage> {
 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Erro ao excluir usuário: $error'),
+              content: Text(l10n.userDeleteError(error.toString())),
               behavior: SnackBarBehavior.floating,
             ),
           );
@@ -243,21 +177,18 @@ class _UsersPageState extends State<UsersPage> {
                         switch (tab) {
                           case AdminTab.users:
                             break;
-
                           case AdminTab.publishers:
                             Navigator.of(context).pushReplacementNamed(
                               AppRoutes.publishersPage,
                             );
                             break;
-
                           case AdminTab.books:
                             Navigator.of(context).pushReplacementNamed(
                               AppRoutes.booksPage,
                             );
                             break;
-
                           case AdminTab.rentals:
-                              Navigator.of(context).pushReplacementNamed(
+                            Navigator.of(context).pushReplacementNamed(
                               AppRoutes.rentalsPage,
                             );
                             break;
@@ -266,19 +197,20 @@ class _UsersPageState extends State<UsersPage> {
                     ),
                     SizedBox(height: isMobile ? 16 : 24),
                     AdminSearchBar(
-                      onChanged: _onSearchChanged,
+                      onChanged: _controller.onSearchChanged,
                       onFilterPressed: () {},
                     ),
                     SizedBox(height: isMobile ? 14 : 20),
                     AdminListContainer(
                       child: _buildContent(l10n),
                     ),
-                    if (!_isLoading && _errorMessage == null) ...[
+                    if (!_controller.isLoading &&
+                        !_controller.hasError) ...[
                       const SizedBox(height: 18),
                       AdminPagination(
-                        currentPage: _currentPage,
-                        totalPages: _totalPages,
-                        onPageChanged: _onPageChanged,
+                        currentPage: _controller.currentPage,
+                        totalPages: _controller.totalPages,
+                        onPageChanged: _controller.changePage,
                       ),
                     ],
                     const SizedBox(height: 20),
@@ -293,7 +225,7 @@ class _UsersPageState extends State<UsersPage> {
   }
 
   Widget _buildContent(AppLocalizations l10n) {
-    if (_isLoading) {
+    if (_controller.isLoading) {
       return const Padding(
         padding: EdgeInsets.symmetric(vertical: 48),
         child: Center(
@@ -302,7 +234,7 @@ class _UsersPageState extends State<UsersPage> {
       );
     }
 
-    if (_errorMessage != null) {
+    if (_controller.hasError) {
       return Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -313,12 +245,12 @@ class _UsersPageState extends State<UsersPage> {
             ),
             const SizedBox(height: 12),
             Text(
-              _errorMessage!,
+              l10n.userLoadError,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: _loadUsers,
+              onPressed: _controller.loadUsers,
               child: Text(l10n.retry),
             ),
           ],
@@ -326,18 +258,18 @@ class _UsersPageState extends State<UsersPage> {
       );
     }
 
-    if (_users.isEmpty) {
-      return const Padding(
-        padding: EdgeInsets.symmetric(vertical: 48),
+    if (_controller.users.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 48),
         child: Column(
           children: [
-            Icon(
+            const Icon(
               Icons.people_outline,
               size: 44,
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Text(
-              'Nenhum usuário encontrado.',
+              l10n.userNoResults,
               textAlign: TextAlign.center,
             ),
           ],
@@ -347,7 +279,7 @@ class _UsersPageState extends State<UsersPage> {
 
     return Column(
       children: [
-        ..._users.map(
+        ..._controller.users.map(
           (user) => Padding(
             padding: const EdgeInsets.only(bottom: 12),
             child: UserListItem(

@@ -107,9 +107,10 @@ class _BookCreateFormState extends State<BookCreateForm> {
             return;
           }
 
+          final l10n = AppLocalizations.of(context)!;
+
           setState(() {
-            _publisherError =
-                'Não foi possível pesquisar editoras.';
+            _publisherError = l10n.bookSearchPublisherError;
             _isSearchingPublishers = false;
           });
         }
@@ -160,30 +161,45 @@ class _BookCreateFormState extends State<BookCreateForm> {
     return '$year-$month-$day';
   }
 
-  String? _requiredValidator(String? value, String label) {
+  String? _requiredValidator(
+    String? value,
+    String label,
+    AppLocalizations l10n,
+  ) {
     if (value == null || value.trim().isEmpty) {
-      return '$label é obrigatório';
+      return l10n.fieldRequired(label);
     }
 
     return null;
   }
 
-  String? _isbnValidator(String? value) {
-    final error = _requiredValidator(value, 'ISBN');
+  String? _isbnValidator(
+    String? value,
+    AppLocalizations l10n,
+  ) {
+    final error = _requiredValidator(
+      value,
+      l10n.bookIsbn,
+      l10n,
+    );
 
     if (error != null) return error;
 
     if (value!.trim().length > 13) {
-      return 'O ISBN deve ter no máximo 13 dígitos.';
+      return l10n.bookIsbnMaxLength;
     }
 
     return null;
   }
 
-  String? _dateValidator(String? value) {
+  String? _dateValidator(
+    String? value,
+    AppLocalizations l10n,
+  ) {
     final error = _requiredValidator(
       value,
-      'Data de publicação',
+      l10n.bookReleaseDate,
+      l10n,
     );
 
     if (error != null) return error;
@@ -191,7 +207,7 @@ class _BookCreateFormState extends State<BookCreateForm> {
     final date = value!.trim();
 
     if (!RegExp(r'^\d{2}/\d{2}/\d{4}$').hasMatch(date)) {
-      return 'Informe a data no formato dd/MM/aaaa.';
+      return l10n.bookDateFormat;
     }
 
     final parts = date.split('/');
@@ -200,7 +216,7 @@ class _BookCreateFormState extends State<BookCreateForm> {
     final year = int.tryParse(parts[2]);
 
     if (day == null || month == null || year == null) {
-      return 'Informe uma data válida.';
+      return l10n.bookDateInvalid;
     }
 
     final parsedDate = DateTime(year, month, day);
@@ -208,21 +224,24 @@ class _BookCreateFormState extends State<BookCreateForm> {
     if (parsedDate.day != day ||
         parsedDate.month != month ||
         parsedDate.year != year) {
-      return 'Informe uma data válida.';
+      return l10n.bookDateInvalid;
     }
 
     return null;
   }
 
-  String? _quantityValidator(String? value) {
+  String? _quantityValidator(
+    String? value,
+    AppLocalizations l10n,
+  ) {
     if (value == null || value.trim().isEmpty) {
-      return 'Informe a quantidade.';
+      return l10n.bookQuantityRequired;
     }
 
     final quantity = int.tryParse(value);
 
     if (quantity == null || quantity < 0) {
-      return 'Informe uma quantidade válida.';
+      return l10n.bookQuantityInvalid;
     }
 
     return null;
@@ -263,7 +282,7 @@ class _BookCreateFormState extends State<BookCreateForm> {
           onChanged: _searchPublishers,
           validator: (_) {
             if (_controller.selectedPublisherId == null) {
-              return 'Selecione uma editora.';
+              return l10n.bookSelectPublisherError;
             }
 
             return null;
@@ -316,7 +335,7 @@ class _BookCreateFormState extends State<BookCreateForm> {
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              'Nenhuma editora encontrada.',
+              l10n.bookNoPublishersFound,
               style: TextStyle(
                 color: colors.onSurfaceVariant,
                 fontSize: 13,
@@ -346,7 +365,7 @@ class _BookCreateFormState extends State<BookCreateForm> {
               FilteringTextInputFormatter.digitsOnly,
               AppInputFormatters.isbn,
             ],
-            validator: _isbnValidator,
+            validator: (value) => _isbnValidator(value, l10n),
           ),
           CustomTextField(
             icon: Icons.menu_book_outlined,
@@ -354,7 +373,7 @@ class _BookCreateFormState extends State<BookCreateForm> {
             hint: l10n.bookTitle,
             textCapitalization: TextCapitalization.words,
             validator: (value) =>
-                _requiredValidator(value, l10n.bookTitle),
+                _requiredValidator(value, l10n.bookTitle, l10n),
           ),
           CustomTextField(
             icon: Icons.category_outlined,
@@ -362,7 +381,7 @@ class _BookCreateFormState extends State<BookCreateForm> {
             hint: l10n.bookGenre,
             textCapitalization: TextCapitalization.words,
             validator: (value) =>
-                _requiredValidator(value, l10n.bookGenre),
+                _requiredValidator(value, l10n.bookGenre, l10n),
           ),
           CustomTextField(
             icon: Icons.calendar_today_outlined,
@@ -372,7 +391,7 @@ class _BookCreateFormState extends State<BookCreateForm> {
             inputFormatters: [
               AppInputFormatters.date,
             ],
-            validator: _dateValidator,
+            validator: (value) => _dateValidator(value, l10n),
           ),
           CustomTextField(
             icon: Icons.inventory_2_outlined,
@@ -382,7 +401,8 @@ class _BookCreateFormState extends State<BookCreateForm> {
             inputFormatters: [
               FilteringTextInputFormatter.digitsOnly,
             ],
-            validator: _quantityValidator,
+            validator: (value) =>
+                _quantityValidator(value, l10n),
           ),
 
           const SizedBox(height: 12),

@@ -47,9 +47,13 @@ class _PublisherEditFormState extends State<PublisherEditForm> {
     );
   }
 
-  String? _requiredValidator(String? value, String label) {
+  String? _requiredValidator(
+    String? value,
+    String label,
+    AppLocalizations l10n,
+  ) {
     if (value == null || value.trim().isEmpty) {
-      return '$label é obrigatório';
+      return l10n.fieldRequired(label);
     }
 
     return null;
@@ -71,7 +75,7 @@ class _PublisherEditFormState extends State<PublisherEditForm> {
             hint: l10n.publisherName,
             textCapitalization: TextCapitalization.words,
             validator: (value) =>
-                _requiredValidator(value, l10n.publisherName),
+                _requiredValidator(value, l10n.publisherName, l10n),
           ),
           CustomTextField(
             icon: Icons.badge_outlined,
@@ -84,7 +88,7 @@ class _PublisherEditFormState extends State<PublisherEditForm> {
             hint: l10n.email,
             keyboardType: TextInputType.emailAddress,
             validator: (value) =>
-                _requiredValidator(value, l10n.email),
+                _requiredValidator(value, l10n.email, l10n),
           ),
           CustomTextField(
             icon: Icons.phone_outlined,

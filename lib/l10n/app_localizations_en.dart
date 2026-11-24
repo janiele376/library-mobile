@@ -624,4 +624,114 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get publisherDeleteIrreversible => 'This action cannot be undone.';
+
+  @override
+  String get publisherPageTitle => 'Publishers';
+
+  @override
+  String get publisherCreateSuccess => 'Publisher registered successfully!';
+
+  @override
+  String get publisherCreateError => 'Error registering publisher.';
+
+  @override
+  String get publisherUpdateSuccess => 'Publisher updated successfully!';
+
+  @override
+  String get publisherUpdateError => 'Error updating publisher.';
+
+  @override
+  String get publisherDeleteSuccess => 'Publisher deleted successfully!';
+
+  @override
+  String get publisherDeleteError => 'Error deleting publisher.';
+
+  @override
+  String get publisherNoResults => 'No publishers found.';
+
+  @override
+  String get publisherLoadError => 'Could not load publishers.';
+
+  @override
+  String get bookLoadPublisherError => 'Could not load the current publisher.';
+
+  @override
+  String get bookSearchPublisherError => 'Could not search for publishers.';
+
+  @override
+  String get bookSelectPublisherError => 'Select a publisher.';
+
+  @override
+  String get bookNoPublishersFound => 'No publishers found.';
+
+  @override
+  String fieldRequired(String field) {
+    return '$field is required.';
+  }
+
+  @override
+  String get bookIsbnMaxLength => 'The ISBN must have a maximum of 13 digits.';
+
+  @override
+  String get bookDateFormat => 'Enter the date in dd/MM/yyyy format.';
+
+  @override
+  String get bookDateInvalid => 'Enter a valid date.';
+
+  @override
+  String get publisherEditTitle => 'Edit publisher';
+
+  @override
+  String get rentalSearchUserHint => 'Search user by name';
+
+  @override
+  String get rentalNoUsersFound => 'No users found.';
+
+  @override
+  String get rentalSearchBookHint => 'Search book by title';
+
+  @override
+  String rentalAvailableStock(int quantity) {
+    return 'Available stock: $quantity';
+  }
+
+  @override
+  String get rentalNoBooksAvailable => 'No available books found.';
+
+  @override
+  String get userLoadError => 'Could not load users.';
+
+  @override
+  String get userNoResults => 'No users found.';
+
+  @override
+  String get userUpdateSuccess => 'User updated successfully!';
+
+  @override
+  String userUpdateError(String error) {
+    return 'Error updating user: $error';
+  }
+
+  @override
+  String get userDeleteSuccess => 'User deleted successfully!';
+
+  @override
+  String userDeleteError(String error) {
+    return 'Error deleting user: $error';
+  }
+
+  @override
+  String get userEditTitle => 'Edit user';
+
+  @override
+  String get settingsLoadError => 'Could not load settings.';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get accessibility => 'Accessibility';
+
+  @override
+  String get back => 'Back';
 }

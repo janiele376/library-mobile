@@ -80,9 +80,10 @@ class _BookEditFormState extends State<BookEditForm> {
     } catch (_) {
       if (!mounted) return;
 
+      final l10n = AppLocalizations.of(context)!;
+
       setState(() {
-        _publisherError =
-            'Não foi possível carregar a editora atual.';
+        _publisherError = l10n.bookLoadPublisherError;
       });
     } finally {
       if (mounted) {
@@ -142,9 +143,10 @@ class _BookEditFormState extends State<BookEditForm> {
             return;
           }
 
+          final l10n = AppLocalizations.of(context)!;
+
           setState(() {
-            _publisherError =
-                'Não foi possível pesquisar editoras.';
+            _publisherError = l10n.bookSearchPublisherError;
             _isSearchingPublishers = false;
           });
         }
@@ -173,23 +175,30 @@ class _BookEditFormState extends State<BookEditForm> {
     );
   }
 
-  String? _requiredValidator(String? value, String label) {
+  String? _requiredValidator(
+    String? value,
+    String label,
+    AppLocalizations l10n,
+  ) {
     if (value == null || value.trim().isEmpty) {
-      return '$label é obrigatório';
+      return l10n.fieldRequired(label);
     }
 
     return null;
   }
 
-  String? _quantityValidator(String? value) {
+  String? _quantityValidator(
+    String? value,
+    AppLocalizations l10n,
+  ) {
     if (value == null || value.trim().isEmpty) {
-      return 'Informe a quantidade.';
+      return l10n.bookQuantityRequired;
     }
 
     final quantity = int.tryParse(value);
 
     if (quantity == null || quantity < 0) {
-      return 'Informe uma quantidade válida.';
+      return l10n.bookQuantityInvalid;
     }
 
     return null;
@@ -230,7 +239,7 @@ class _BookEditFormState extends State<BookEditForm> {
           onChanged: _searchPublishers,
           validator: (_) {
             if (_controller.selectedPublisherId == null) {
-              return 'Selecione uma editora.';
+              return l10n.bookSelectPublisherError;
             }
 
             return null;
@@ -283,7 +292,7 @@ class _BookEditFormState extends State<BookEditForm> {
           Padding(
             padding: const EdgeInsets.only(top: 10),
             child: Text(
-              'Nenhuma editora encontrada.',
+              l10n.bookNoPublishersFound,
               style: TextStyle(
                 color: colors.onSurfaceVariant,
                 fontSize: 13,
@@ -316,7 +325,7 @@ class _BookEditFormState extends State<BookEditForm> {
             hint: l10n.bookTitle,
             textCapitalization: TextCapitalization.words,
             validator: (value) =>
-                _requiredValidator(value, l10n.bookTitle),
+                _requiredValidator(value, l10n.bookTitle, l10n),
           ),
           CustomTextField(
             icon: Icons.category_outlined,
@@ -324,7 +333,7 @@ class _BookEditFormState extends State<BookEditForm> {
             hint: l10n.bookGenre,
             textCapitalization: TextCapitalization.words,
             validator: (value) =>
-                _requiredValidator(value, l10n.bookGenre),
+                _requiredValidator(value, l10n.bookGenre, l10n),
           ),
           CustomTextField(
             icon: Icons.calendar_today_outlined,
@@ -335,7 +344,7 @@ class _BookEditFormState extends State<BookEditForm> {
               AppInputFormatters.date,
             ],
             validator: (value) =>
-                _requiredValidator(value, l10n.bookReleaseDate),
+                _requiredValidator(value, l10n.bookReleaseDate, l10n),
           ),
           CustomTextField(
             icon: Icons.inventory_2_outlined,
@@ -345,7 +354,7 @@ class _BookEditFormState extends State<BookEditForm> {
             inputFormatters: [
               FilteringTextInputFormatter.digitsOnly,
             ],
-            validator: _quantityValidator,
+            validator: (value) => _quantityValidator(value, l10n),
           ),
 
           const SizedBox(height: 12),

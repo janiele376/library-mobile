@@ -56,7 +56,7 @@ class _RentalEditFormState extends State<RentalEditForm> {
           controller: _controller.userController,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.person_outline),
-            hintText: 'Pesquisar usuário pelo nome',
+            hintText: l10n.rentalSearchUserHint,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -87,7 +87,6 @@ class _RentalEditFormState extends State<RentalEditForm> {
             return null;
           },
         ),
-
         if (_controller.userError != null)
           Padding(
             padding: const EdgeInsets.only(top: 8),
@@ -96,7 +95,6 @@ class _RentalEditFormState extends State<RentalEditForm> {
               style: TextStyle(color: colors.error),
             ),
           ),
-
         if (_controller.userResults.isNotEmpty)
           _buildResultsContainer(
             children: _controller.userResults.map((user) {
@@ -111,10 +109,9 @@ class _RentalEditFormState extends State<RentalEditForm> {
               );
             }).toList(),
           ),
-
         if (_controller.searchedUsers &&
             _controller.userResults.isEmpty)
-          _buildEmptyResults('Nenhum usuário encontrado.'),
+          _buildEmptyResults(l10n.rentalNoUsersFound),
       ],
     );
   }
@@ -129,7 +126,7 @@ class _RentalEditFormState extends State<RentalEditForm> {
           controller: _controller.bookController,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.menu_book_outlined),
-            hintText: 'Pesquisar livro pelo título',
+            hintText: l10n.rentalSearchBookHint,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -160,7 +157,6 @@ class _RentalEditFormState extends State<RentalEditForm> {
             return null;
           },
         ),
-
         if (_controller.bookError != null)
           Padding(
             padding: const EdgeInsets.only(top: 8),
@@ -169,7 +165,6 @@ class _RentalEditFormState extends State<RentalEditForm> {
               style: TextStyle(color: colors.error),
             ),
           ),
-
         if (_controller.bookResults.isNotEmpty)
           _buildResultsContainer(
             children: _controller.bookResults.map((book) {
@@ -181,18 +176,15 @@ class _RentalEditFormState extends State<RentalEditForm> {
                   overflow: TextOverflow.ellipsis,
                 ),
                 subtitle: Text(
-                  'Estoque disponível: ${book.quantity}',
+                  l10n.rentalAvailableStock(book.quantity),
                 ),
                 onTap: () => _controller.selectBook(book),
               );
             }).toList(),
           ),
-
         if (_controller.searchedBooks &&
             _controller.bookResults.isEmpty)
-          _buildEmptyResults(
-            'Nenhum livro disponível encontrado.',
-          ),
+          _buildEmptyResults(l10n.rentalNoBooksAvailable),
       ],
     );
   }
@@ -265,7 +257,6 @@ class _RentalEditFormState extends State<RentalEditForm> {
                 const SizedBox(height: 16),
                 _buildBookSearch(l10n),
               ],
-
               if (_controller.changeError != null) ...[
                 const SizedBox(height: 8),
                 Align(
@@ -279,16 +270,12 @@ class _RentalEditFormState extends State<RentalEditForm> {
                   ),
                 ),
               ],
-
               const SizedBox(height: 16),
-
               SizedBox(
                 width: double.infinity,
                 height: 48,
                 child: ElevatedButton.icon(
-                  onPressed: _controller.isLoadingInitial
-                      ? null
-                      : _save,
+                  onPressed: _controller.isLoadingInitial ? null : _save,
                   icon: const Icon(
                     Icons.save_outlined,
                     size: 19,

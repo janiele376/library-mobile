@@ -1,6 +1,4 @@
 
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 import '../../../../../../l10n/app_localizations.dart';
@@ -8,13 +6,16 @@ import '../../../../../../core/services/auth/session_service.dart';
 import '../../../../../../core/services/routes/app_routes.dart';
 import '../../../../../../core/widgets/app_header.dart';
 import '../../../../../../core/widgets/app_menu.dart';
+
 import '../../../../widgets/admin_list_container.dart';
 import '../../../../widgets/admin_navigation_tabs.dart';
 import '../../../../widgets/admin_pagination.dart';
 import '../../../../widgets/admin_search_bar.dart';
+
+import '../../controllers/publishers_page_controller.dart';
 import '../../models/publisher_model.dart';
 import '../../models/publisher_update_model.dart';
-import '../../services/publisher_service.dart';
+
 import '../widgets/publisher_create_dialog.dart';
 import '../widgets/publisher_delete_dialog.dart';
 import '../widgets/publisher_edit_dialog.dart';
@@ -28,30 +29,29 @@ class PublishersPage extends StatefulWidget {
 }
 
 class _PublishersPageState extends State<PublishersPage> {
-  final PublisherService _publisherService = PublisherService();
-
-  List<PublisherModel> _publishers = [];
-
-  bool _isLoading = true;
-  String? _errorMessage;
-
-  String _search = '';
-  int _currentPage = 1;
-  int _totalPages = 1;
-
-  Timer? _searchDebounce;
-
-  static const int _pageSize = 5;
+  late final PublishersPageController _controller;
 
   @override
   void initState() {
     super.initState();
-    _loadPublishers();
+
+    _controller = PublishersPageController();
+    _controller.addListener(_onControllerChanged);
+
+    _controller.loadPublishers();
+  }
+
+  void _onControllerChanged() {
+    if (!mounted) return;
+
+    setState(() {});
   }
 
   @override
   void dispose() {
-    _searchDebounce?.cancel();
+    _controller.removeListener(_onControllerChanged);
+    _controller.dispose();
+
     super.dispose();
   }
 
@@ -80,65 +80,9 @@ class _PublishersPageState extends State<PublishersPage> {
 
   void _openAdminArea() {}
 
-  Future<void> _loadPublishers() async {
-    if (!mounted) return;
-
-    setState(() {
-      _isLoading = true;
-      _errorMessage = null;
-    });
-
-    try {
-      final result = await _publisherService.getPublishers(
-        name: _search,
-        page: _currentPage - 1,
-        size: _pageSize,
-      );
-
-      if (!mounted) return;
-
-      setState(() {
-        _publishers = result.content;
-        _totalPages = result.totalPages < 1
-            ? 1
-            : result.totalPages;
-        _currentPage = result.currentPage + 1;
-        _isLoading = false;
-      });
-    } catch (error) {
-      if (!mounted) return;
-
-      setState(() {
-        _errorMessage = error.toString();
-        _isLoading = false;
-      });
-    }
-  }
-
-  void _onSearchChanged(String value) {
-    _search = value;
-    _currentPage = 1;
-
-    _searchDebounce?.cancel();
-
-    _searchDebounce = Timer(
-      const Duration(milliseconds: 400),
-      _loadPublishers,
-    );
-  }
-
-  void _onPageChanged(int page) {
-    if (page < 1 || page > _totalPages) return;
-
-    setState(() {
-      _currentPage = page;
-    });
-
-    _loadPublishers();
-  }
-
-
   void _createPublisher() {
+    final l10n = AppLocalizations.of(context)!;
+
     PublisherCreateDialog.show(
       context: context,
       onSave: ({
@@ -149,7 +93,7 @@ class _PublishersPageState extends State<PublishersPage> {
         required String address,
       }) async {
         try {
-          await _publisherService.createPublisher(
+          await _controller.createPublisher(
             name: name,
             cnpj: cnpj,
             email: email,
@@ -157,21 +101,19 @@ class _PublishersPageState extends State<PublishersPage> {
             address: address,
           );
 
-          await _loadPublishers();
-
-          if (!mounted) return;
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Editora cadastrada com sucesso!'),
-            ),
-          );
-        } catch (e) {
           if (!mounted) return;
 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Erro ao cadastrar editora: $e'),
+              content: Text(l10n.publisherCreateSuccess),
+            ),
+          );
+        } catch (error) {
+          if (!mounted) return;
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(l10n.publisherCreateError),
             ),
           );
 
@@ -182,12 +124,14 @@ class _PublishersPageState extends State<PublishersPage> {
   }
 
   Future<void> _editPublisher(PublisherModel publisher) async {
+    final l10n = AppLocalizations.of(context)!;
+
     await PublisherEditDialog.show(
       context: context,
       publisher: publisher,
       onSave: (PublisherUpdateModel updatedPublisher) async {
         try {
-          await _publisherService.updatePublisher(
+          await _controller.updatePublisher(
             id: updatedPublisher.id,
             name: updatedPublisher.name,
             email: updatedPublisher.email,
@@ -197,13 +141,9 @@ class _PublishersPageState extends State<PublishersPage> {
 
           if (!mounted) return;
 
-          await _loadPublishers();
-
-          if (!mounted) return;
-
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Editora atualizada com sucesso!'),
+            SnackBar(
+              content: Text(l10n.publisherUpdateSuccess),
               behavior: SnackBarBehavior.floating,
             ),
           );
@@ -212,7 +152,7 @@ class _PublishersPageState extends State<PublishersPage> {
 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Erro ao atualizar editora: $error'),
+              content: Text(l10n.publisherUpdateError),
               behavior: SnackBarBehavior.floating,
             ),
           );
@@ -222,26 +162,20 @@ class _PublishersPageState extends State<PublishersPage> {
   }
 
   Future<void> _deletePublisher(PublisherModel publisher) async {
+    final l10n = AppLocalizations.of(context)!;
+
     await PublisherDeleteDialog.show(
       context: context,
       publisherName: publisher.name,
       onConfirm: () async {
         try {
-          await _publisherService.deletePublisher(publisher.id);
-
-          if (!mounted) return;
-
-          if (_publishers.length == 1 && _currentPage > 1) {
-            _currentPage--;
-          }
-
-          await _loadPublishers();
+          await _controller.deletePublisher(publisher.id);
 
           if (!mounted) return;
 
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Editora excluída com sucesso!'),
+            SnackBar(
+              content: Text(l10n.publisherDeleteSuccess),
               behavior: SnackBarBehavior.floating,
             ),
           );
@@ -250,7 +184,7 @@ class _PublishersPageState extends State<PublishersPage> {
 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Erro ao excluir editora: $error'),
+              content: Text(l10n.publisherDeleteError),
               behavior: SnackBarBehavior.floating,
             ),
           );
@@ -267,7 +201,7 @@ class _PublishersPageState extends State<PublishersPage> {
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppHeader(
-        pageTitle: 'Editoras',
+        pageTitle: l10n.publisherPageTitle,
         selectedPage: AppMenuPage.adminArea,
         isAdmin: true,
         onDashboard: _openDashboard,
@@ -317,7 +251,7 @@ class _PublishersPageState extends State<PublishersPage> {
                             break;
 
                           case AdminTab.rentals:
-                              Navigator.of(context).pushReplacementNamed(
+                            Navigator.of(context).pushReplacementNamed(
                               AppRoutes.rentalsPage,
                             );
                             break;
@@ -326,19 +260,20 @@ class _PublishersPageState extends State<PublishersPage> {
                     ),
                     SizedBox(height: isMobile ? 16 : 24),
                     AdminSearchBar(
-                      onChanged: _onSearchChanged,
+                      onChanged: _controller.onSearchChanged,
                       onFilterPressed: () {},
                     ),
                     SizedBox(height: isMobile ? 14 : 20),
                     AdminListContainer(
                       child: _buildContent(l10n),
                     ),
-                    if (!_isLoading && _errorMessage == null) ...[
+                    if (!_controller.isLoading &&
+                        !_controller.hasError) ...[
                       const SizedBox(height: 18),
                       AdminPagination(
-                        currentPage: _currentPage,
-                        totalPages: _totalPages,
-                        onPageChanged: _onPageChanged,
+                        currentPage: _controller.currentPage,
+                        totalPages: _controller.totalPages,
+                        onPageChanged: _controller.changePage,
                       ),
                     ],
                     const SizedBox(height: 20),
@@ -353,7 +288,7 @@ class _PublishersPageState extends State<PublishersPage> {
   }
 
   Widget _buildContent(AppLocalizations l10n) {
-    if (_isLoading) {
+    if (_controller.isLoading) {
       return const Padding(
         padding: EdgeInsets.symmetric(vertical: 48),
         child: Center(
@@ -362,7 +297,7 @@ class _PublishersPageState extends State<PublishersPage> {
       );
     }
 
-    if (_errorMessage != null) {
+    if (_controller.hasError) {
       return Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -373,12 +308,12 @@ class _PublishersPageState extends State<PublishersPage> {
             ),
             const SizedBox(height: 12),
             Text(
-              _errorMessage!,
+              l10n.publisherLoadError,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: _loadPublishers,
+              onPressed: _controller.loadPublishers,
               child: Text(l10n.retry),
             ),
           ],
@@ -386,18 +321,18 @@ class _PublishersPageState extends State<PublishersPage> {
       );
     }
 
-    if (_publishers.isEmpty) {
-      return const Padding(
-        padding: EdgeInsets.symmetric(vertical: 48),
+    if (_controller.publishers.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 48),
         child: Column(
           children: [
-            Icon(
+            const Icon(
               Icons.business_outlined,
               size: 44,
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Text(
-              'Nenhuma editora encontrada.',
+              l10n.publisherNoResults,
               textAlign: TextAlign.center,
             ),
           ],
@@ -407,7 +342,7 @@ class _PublishersPageState extends State<PublishersPage> {
 
     return Column(
       children: [
-        ..._publishers.map(
+        ..._controller.publishers.map(
           (publisher) => Padding(
             padding: const EdgeInsets.only(bottom: 12),
             child: PublisherListItem(

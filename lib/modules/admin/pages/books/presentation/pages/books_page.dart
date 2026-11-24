@@ -1,6 +1,4 @@
 
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 import '../../../../../../l10n/app_localizations.dart';
@@ -14,9 +12,9 @@ import '../../../../widgets/admin_navigation_tabs.dart';
 import '../../../../widgets/admin_pagination.dart';
 import '../../../../widgets/admin_search_bar.dart';
 
+import '../../controllers/books_page_controller.dart';
 import '../../models/book_model.dart';
 import '../../models/book_update_model.dart';
-import '../../services/book_service.dart';
 
 import '../widgets/book_list_item.dart';
 import '../widgets/book_create_dialog.dart';
@@ -31,31 +29,29 @@ class BooksPage extends StatefulWidget {
 }
 
 class _BooksPageState extends State<BooksPage> {
-  final BookService _bookService = BookService();
-
-  List<BookModel> _books = [];
-
-  bool _isLoading = true;
-  String? _errorMessage;
-
-  String _searchQuery = '';
-
-  int _currentPage = 1;
-  int _totalPages = 1;
-
-  static const int _pageSize = 5;
-
-  Timer? _debounce;
+  late final BooksPageController _controller;
 
   @override
   void initState() {
     super.initState();
-    _loadBooks();
+
+    _controller = BooksPageController();
+    _controller.addListener(_onControllerChanged);
+
+    _controller.loadBooks();
+  }
+
+  void _onControllerChanged() {
+    if (!mounted) return;
+
+    setState(() {});
   }
 
   @override
   void dispose() {
-    _debounce?.cancel();
+    _controller.removeListener(_onControllerChanged);
+    _controller.dispose();
+
     super.dispose();
   }
 
@@ -84,67 +80,11 @@ class _BooksPageState extends State<BooksPage> {
 
   void _openAdminArea() {}
 
-  Future<void> _loadBooks() async {
-    if (!mounted) return;
-
-    setState(() {
-      _isLoading = true;
-      _errorMessage = null;
-    });
-
-    try {
-      final result = await _bookService.getBooks(
-        title: _searchQuery.isEmpty ? null : _searchQuery,
-        page: _currentPage - 1,
-        size: _pageSize,
-      );
-
-      if (!mounted) return;
-
-      setState(() {
-        _books = result.content;
-        _totalPages = result.totalPages < 1
-            ? 1
-            : result.totalPages;
-        _currentPage = result.currentPage + 1;
-        _isLoading = false;
-      });
-    } catch (error) {
-      if (!mounted) return;
-
-      setState(() {
-        _errorMessage = AppLocalizations.of(context)!.bookLoadError;
-        _isLoading = false;
-      });
-    }
-  }
-
-  void _onSearchChanged(String value) {
-    _debounce?.cancel();
-
-    _debounce = Timer(
-      const Duration(milliseconds: 400),
-      () {
-        _searchQuery = value.trim();
-        _currentPage = 1;
-        _loadBooks();
-      },
-    );
-  }
-
-  void _onPageChanged(int page) {
-    if (page < 1 || page > _totalPages) return;
-
-    setState(() {
-      _currentPage = page;
-    });
-
-    _loadBooks();
-  }
-
   Future<void> _createBook(Map<String, dynamic> data) async {
+    final l10n = AppLocalizations.of(context)!;
+
     try {
-      await _bookService.createBook(
+      await _controller.createBook(
         isbn: data['isbn'] as String,
         title: data['title'] as String,
         genre: data['genre'] as String,
@@ -157,15 +97,10 @@ class _BooksPageState extends State<BooksPage> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            AppLocalizations.of(context)!.bookCreateSuccess,
-          ),
+          content: Text(l10n.bookCreateSuccess),
           behavior: SnackBarBehavior.floating,
         ),
       );
-
-      _currentPage = 1;
-      await _loadBooks();
     } catch (error) {
       if (!mounted) return;
 
@@ -180,7 +115,7 @@ class _BooksPageState extends State<BooksPage> {
 
   Future<void> _updateBook(BookUpdateModel book) async {
     try {
-      await _bookService.updateBook(
+      await _controller.updateBook(
         id: book.id,
         title: book.title,
         genre: book.genre,
@@ -199,8 +134,6 @@ class _BooksPageState extends State<BooksPage> {
           behavior: SnackBarBehavior.floating,
         ),
       );
-
-      await _loadBooks();
     } catch (error) {
       if (!mounted) return;
 
@@ -215,15 +148,7 @@ class _BooksPageState extends State<BooksPage> {
 
   Future<void> _deleteBook(BookModel book) async {
     try {
-      await _bookService.deleteBook(book.id);
-
-      if (!mounted) return;
-
-      if (_books.length == 1 && _currentPage > 1) {
-        _currentPage--;
-      }
-
-      await _loadBooks();
+      await _controller.deleteBook(book.id);
 
       if (!mounted) return;
 
@@ -328,7 +253,7 @@ class _BooksPageState extends State<BooksPage> {
                             break;
 
                           case AdminTab.rentals:
-                              Navigator.of(context).pushReplacementNamed(
+                            Navigator.of(context).pushReplacementNamed(
                               AppRoutes.rentalsPage,
                             );
                             break;
@@ -337,19 +262,20 @@ class _BooksPageState extends State<BooksPage> {
                     ),
                     SizedBox(height: isMobile ? 16 : 24),
                     AdminSearchBar(
-                      onChanged: _onSearchChanged,
+                      onChanged: _controller.onSearchChanged,
                       onFilterPressed: () {},
                     ),
                     SizedBox(height: isMobile ? 14 : 20),
                     AdminListContainer(
                       child: _buildContent(l10n),
                     ),
-                    if (!_isLoading && _errorMessage == null) ...[
+                    if (!_controller.isLoading &&
+                        !_controller.hasError) ...[
                       const SizedBox(height: 18),
                       AdminPagination(
-                        currentPage: _currentPage,
-                        totalPages: _totalPages,
-                        onPageChanged: _onPageChanged,
+                        currentPage: _controller.currentPage,
+                        totalPages: _controller.totalPages,
+                        onPageChanged: _controller.changePage,
                       ),
                     ],
                     const SizedBox(height: 20),
@@ -364,7 +290,7 @@ class _BooksPageState extends State<BooksPage> {
   }
 
   Widget _buildContent(AppLocalizations l10n) {
-    if (_isLoading) {
+    if (_controller.isLoading) {
       return const Padding(
         padding: EdgeInsets.symmetric(vertical: 48),
         child: Center(
@@ -373,7 +299,7 @@ class _BooksPageState extends State<BooksPage> {
       );
     }
 
-    if (_errorMessage != null) {
+    if (_controller.hasError) {
       return Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -384,12 +310,12 @@ class _BooksPageState extends State<BooksPage> {
             ),
             const SizedBox(height: 12),
             Text(
-              _errorMessage!,
+              l10n.bookLoadError,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: _loadBooks,
+              onPressed: _controller.loadBooks,
               child: Text(l10n.retry),
             ),
           ],
@@ -397,7 +323,7 @@ class _BooksPageState extends State<BooksPage> {
       );
     }
 
-    if (_books.isEmpty) {
+    if (_controller.books.isEmpty) {
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 48),
         child: Column(
@@ -418,7 +344,7 @@ class _BooksPageState extends State<BooksPage> {
 
     return Column(
       children: [
-        ..._books.map(
+        ..._controller.books.map(
           (book) => Padding(
             padding: const EdgeInsets.only(bottom: 12),
             child: BookListItem(

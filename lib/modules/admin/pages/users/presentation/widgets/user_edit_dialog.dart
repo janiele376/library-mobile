@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
 import '../../models/user_model.dart';
 import 'user_edit_form.dart';
 
@@ -32,6 +34,7 @@ class UserEditDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
 
@@ -75,15 +78,13 @@ class UserEditDialog extends StatelessWidget {
                         size: 23,
                       ),
                     ),
-
                     const SizedBox(width: 12),
-
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Editar usuário',
+                            l10n.userEditTitle,
                             style: theme.textTheme.titleMedium?.copyWith(
                               color: colors.onSurface,
                               fontWeight: FontWeight.w700,
@@ -99,10 +100,9 @@ class UserEditDialog extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     IconButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      tooltip: 'Fechar',
+                      tooltip: l10n.close,
                       icon: Icon(
                         Icons.close,
                         color: colors.onSurfaceVariant,
@@ -111,12 +111,10 @@ class UserEditDialog extends StatelessWidget {
                   ],
                 ),
               ),
-
               Divider(
                 height: 1,
                 color: colors.outlineVariant.withValues(alpha: 0.5),
               ),
-
               Flexible(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),

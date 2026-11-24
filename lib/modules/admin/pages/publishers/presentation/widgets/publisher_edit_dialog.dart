@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../../../../../../l10n/app_localizations.dart';
 import '../../models/publisher_model.dart';
 import '../../models/publisher_update_model.dart';
 import 'publisher_edit_form.dart';
@@ -34,6 +35,7 @@ class PublisherEditDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
 
@@ -77,15 +79,13 @@ class PublisherEditDialog extends StatelessWidget {
                         size: 23,
                       ),
                     ),
-
                     const SizedBox(width: 12),
-
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Editar editora',
+                            l10n.publisherEditTitle,
                             style: theme.textTheme.titleMedium?.copyWith(
                               color: colors.onSurface,
                               fontWeight: FontWeight.w700,
@@ -101,10 +101,9 @@ class PublisherEditDialog extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     IconButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      tooltip: 'Fechar',
+                      tooltip: l10n.close,
                       icon: Icon(
                         Icons.close,
                         color: colors.onSurfaceVariant,
@@ -113,12 +112,10 @@ class PublisherEditDialog extends StatelessWidget {
                   ],
                 ),
               ),
-
               Divider(
                 height: 1,
                 color: colors.outlineVariant.withValues(alpha: 0.5),
               ),
-
               Flexible(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),

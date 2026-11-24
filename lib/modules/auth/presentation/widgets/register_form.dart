@@ -304,8 +304,8 @@ class _RegisterFormState extends State<RegisterForm> {
             child: ElevatedButton(
               onPressed: isLoading ? null : _register,
               style: ElevatedButton.styleFrom(
-                backgroundColor: colors.onPrimary,
-                foregroundColor: colors.primary,
+                backgroundColor: colors.primary,
+                foregroundColor: colors.onPrimary,
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),

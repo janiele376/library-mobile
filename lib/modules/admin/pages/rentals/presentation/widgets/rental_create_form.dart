@@ -46,7 +46,7 @@ class _RentalCreateFormState extends State<RentalCreateForm> {
           controller: _controller.userController,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.person_outline),
-            hintText: 'Pesquisar usuário pelo nome',
+            hintText: l10n.rentalSearchUserHint,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -77,7 +77,6 @@ class _RentalCreateFormState extends State<RentalCreateForm> {
             return null;
           },
         ),
-
         if (_controller.userError != null)
           Padding(
             padding: const EdgeInsets.only(top: 8),
@@ -86,7 +85,6 @@ class _RentalCreateFormState extends State<RentalCreateForm> {
               style: TextStyle(color: colors.error),
             ),
           ),
-
         if (_controller.userResults.isNotEmpty)
           _buildResultsContainer(
             children: _controller.userResults.map((user) {
@@ -101,10 +99,9 @@ class _RentalCreateFormState extends State<RentalCreateForm> {
               );
             }).toList(),
           ),
-
         if (_controller.searchedUsers &&
             _controller.userResults.isEmpty)
-          _buildEmptyResults('Nenhum usuário encontrado.'),
+          _buildEmptyResults(l10n.rentalNoUsersFound),
       ],
     );
   }
@@ -119,7 +116,7 @@ class _RentalCreateFormState extends State<RentalCreateForm> {
           controller: _controller.bookController,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.menu_book_outlined),
-            hintText: 'Pesquisar livro pelo título',
+            hintText: l10n.rentalSearchBookHint,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -150,7 +147,6 @@ class _RentalCreateFormState extends State<RentalCreateForm> {
             return null;
           },
         ),
-
         if (_controller.bookError != null)
           Padding(
             padding: const EdgeInsets.only(top: 8),
@@ -159,7 +155,6 @@ class _RentalCreateFormState extends State<RentalCreateForm> {
               style: TextStyle(color: colors.error),
             ),
           ),
-
         if (_controller.bookResults.isNotEmpty)
           _buildResultsContainer(
             children: _controller.bookResults.map((book) {
@@ -171,18 +166,15 @@ class _RentalCreateFormState extends State<RentalCreateForm> {
                   overflow: TextOverflow.ellipsis,
                 ),
                 subtitle: Text(
-                  'Estoque disponível: ${book.quantity}',
+                  l10n.rentalAvailableStock(book.quantity),
                 ),
                 onTap: () => _controller.selectBook(book),
               );
             }).toList(),
           ),
-
         if (_controller.searchedBooks &&
             _controller.bookResults.isEmpty)
-          _buildEmptyResults(
-            'Nenhum livro disponível encontrado.',
-          ),
+          _buildEmptyResults(l10n.rentalNoBooksAvailable),
       ],
     );
   }

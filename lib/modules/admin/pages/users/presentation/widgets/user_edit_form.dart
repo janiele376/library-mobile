@@ -48,7 +48,7 @@ class _UserEditFormState extends State<UserEditForm> {
 
   String? _requiredValidator(String? value, String label) {
     if (value == null || value.trim().isEmpty) {
-      return '$label é obrigatório';
+      return AppLocalizations.of(context)!.fieldRequired(label);
     }
 
     return null;
@@ -58,7 +58,7 @@ class _UserEditFormState extends State<UserEditForm> {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context)!;
-    
+
     return Form(
       key: _formKey,
       child: Column(

@@ -1293,6 +1293,210 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Essa ação não poderá ser desfeita.'**
   String get publisherDeleteIrreversible;
+
+  /// No description provided for @publisherPageTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editoras'**
+  String get publisherPageTitle;
+
+  /// No description provided for @publisherCreateSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editora cadastrada com sucesso!'**
+  String get publisherCreateSuccess;
+
+  /// No description provided for @publisherCreateError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao cadastrar editora.'**
+  String get publisherCreateError;
+
+  /// No description provided for @publisherUpdateSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editora atualizada com sucesso!'**
+  String get publisherUpdateSuccess;
+
+  /// No description provided for @publisherUpdateError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao atualizar editora.'**
+  String get publisherUpdateError;
+
+  /// No description provided for @publisherDeleteSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editora excluída com sucesso!'**
+  String get publisherDeleteSuccess;
+
+  /// No description provided for @publisherDeleteError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao excluir editora.'**
+  String get publisherDeleteError;
+
+  /// No description provided for @publisherNoResults.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhuma editora encontrada.'**
+  String get publisherNoResults;
+
+  /// No description provided for @publisherLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível carregar as editoras.'**
+  String get publisherLoadError;
+
+  /// No description provided for @bookLoadPublisherError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível carregar a editora atual.'**
+  String get bookLoadPublisherError;
+
+  /// No description provided for @bookSearchPublisherError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível pesquisar editoras.'**
+  String get bookSearchPublisherError;
+
+  /// No description provided for @bookSelectPublisherError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Selecione uma editora.'**
+  String get bookSelectPublisherError;
+
+  /// No description provided for @bookNoPublishersFound.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhuma editora encontrada.'**
+  String get bookNoPublishersFound;
+
+  /// No description provided for @fieldRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'{field} é obrigatório.'**
+  String fieldRequired(String field);
+
+  /// No description provided for @bookIsbnMaxLength.
+  ///
+  /// In pt, this message translates to:
+  /// **'O ISBN deve ter no máximo 13 dígitos.'**
+  String get bookIsbnMaxLength;
+
+  /// No description provided for @bookDateFormat.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe a data no formato dd/MM/aaaa.'**
+  String get bookDateFormat;
+
+  /// No description provided for @bookDateInvalid.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe uma data válida.'**
+  String get bookDateInvalid;
+
+  /// No description provided for @publisherEditTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar editora'**
+  String get publisherEditTitle;
+
+  /// No description provided for @rentalSearchUserHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pesquisar usuário pelo nome'**
+  String get rentalSearchUserHint;
+
+  /// No description provided for @rentalNoUsersFound.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum usuário encontrado.'**
+  String get rentalNoUsersFound;
+
+  /// No description provided for @rentalSearchBookHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pesquisar livro pelo título'**
+  String get rentalSearchBookHint;
+
+  /// No description provided for @rentalAvailableStock.
+  ///
+  /// In pt, this message translates to:
+  /// **'Estoque disponível: {quantity}'**
+  String rentalAvailableStock(int quantity);
+
+  /// No description provided for @rentalNoBooksAvailable.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum livro disponível encontrado.'**
+  String get rentalNoBooksAvailable;
+
+  /// No description provided for @userLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível carregar os usuários.'**
+  String get userLoadError;
+
+  /// No description provided for @userNoResults.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum usuário encontrado.'**
+  String get userNoResults;
+
+  /// No description provided for @userUpdateSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Usuário atualizado com sucesso!'**
+  String get userUpdateSuccess;
+
+  /// No description provided for @userUpdateError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao atualizar usuário: {error}'**
+  String userUpdateError(String error);
+
+  /// No description provided for @userDeleteSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Usuário excluído com sucesso!'**
+  String get userDeleteSuccess;
+
+  /// No description provided for @userDeleteError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao excluir usuário: {error}'**
+  String userDeleteError(String error);
+
+  /// No description provided for @userEditTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar usuário'**
+  String get userEditTitle;
+
+  /// No description provided for @settingsLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível carregar as configurações.'**
+  String get settingsLoadError;
+
+  /// No description provided for @profile.
+  ///
+  /// In pt, this message translates to:
+  /// **'Perfil'**
+  String get profile;
+
+  /// No description provided for @accessibility.
+  ///
+  /// In pt, this message translates to:
+  /// **'Acessibilidade'**
+  String get accessibility;
+
+  /// No description provided for @back.
+  ///
+  /// In pt, this message translates to:
+  /// **'Voltar'**
+  String get back;
 }
 
 class _AppLocalizationsDelegate

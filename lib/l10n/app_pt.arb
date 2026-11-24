@@ -207,5 +207,67 @@
   "publisherCreateSubtitle": "Preencha os dados da nova editora",
   "publisherDeleteTitle": "Excluir editora",
   "publisherDeleteConfirmation": "Tem certeza de que deseja excluir esta editora?",
-  "publisherDeleteIrreversible": "Essa ação não poderá ser desfeita."
+  "publisherDeleteIrreversible": "Essa ação não poderá ser desfeita.",
+  "publisherPageTitle": "Editoras",
+  "publisherCreateSuccess": "Editora cadastrada com sucesso!",
+  "publisherCreateError": "Erro ao cadastrar editora.",
+  "publisherUpdateSuccess": "Editora atualizada com sucesso!",
+  "publisherUpdateError": "Erro ao atualizar editora.",
+  "publisherDeleteSuccess": "Editora excluída com sucesso!",
+  "publisherDeleteError": "Erro ao excluir editora.",
+  "publisherNoResults": "Nenhuma editora encontrada.",
+  "publisherLoadError": "Não foi possível carregar as editoras.",
+  "bookLoadPublisherError": "Não foi possível carregar a editora atual.",
+  "bookSearchPublisherError": "Não foi possível pesquisar editoras.",
+  "bookSelectPublisherError": "Selecione uma editora.",
+  "bookNoPublishersFound": "Nenhuma editora encontrada.",
+  "fieldRequired": "{field} é obrigatório.",
+  "@fieldRequired": {
+  "placeholders": {
+    "field": {
+      "type": "String"
+    }
+  }
+},
+  "bookIsbnMaxLength": "O ISBN deve ter no máximo 13 dígitos.",
+  "bookDateFormat": "Informe a data no formato dd/MM/aaaa.",
+  "bookDateInvalid": "Informe uma data válida.",
+  "publisherEditTitle": "Editar editora",
+  "rentalSearchUserHint": "Pesquisar usuário pelo nome",
+  "rentalNoUsersFound": "Nenhum usuário encontrado.",
+  "rentalSearchBookHint": "Pesquisar livro pelo título",
+  "rentalAvailableStock": "Estoque disponível: {quantity}",
+  "@rentalAvailableStock": {
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "rentalNoBooksAvailable": "Nenhum livro disponível encontrado.",
+  "userLoadError": "Não foi possível carregar os usuários.",
+  "userNoResults": "Nenhum usuário encontrado.",
+  "userUpdateSuccess": "Usuário atualizado com sucesso!",
+  "userUpdateError": "Erro ao atualizar usuário: {error}",
+  "@userUpdateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "userDeleteSuccess": "Usuário excluído com sucesso!",
+  "userDeleteError": "Erro ao excluir usuário: {error}",
+  "@userDeleteError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "userEditTitle": "Editar usuário",
+  "settingsLoadError": "Não foi possível carregar as configurações.",
+  "profile": "Perfil",
+  "accessibility": "Acessibilidade",
+  "back": "Voltar"
 }

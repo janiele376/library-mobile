@@ -626,4 +626,115 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get publisherDeleteIrreversible =>
       'Essa ação não poderá ser desfeita.';
+
+  @override
+  String get publisherPageTitle => 'Editoras';
+
+  @override
+  String get publisherCreateSuccess => 'Editora cadastrada com sucesso!';
+
+  @override
+  String get publisherCreateError => 'Erro ao cadastrar editora.';
+
+  @override
+  String get publisherUpdateSuccess => 'Editora atualizada com sucesso!';
+
+  @override
+  String get publisherUpdateError => 'Erro ao atualizar editora.';
+
+  @override
+  String get publisherDeleteSuccess => 'Editora excluída com sucesso!';
+
+  @override
+  String get publisherDeleteError => 'Erro ao excluir editora.';
+
+  @override
+  String get publisherNoResults => 'Nenhuma editora encontrada.';
+
+  @override
+  String get publisherLoadError => 'Não foi possível carregar as editoras.';
+
+  @override
+  String get bookLoadPublisherError =>
+      'Não foi possível carregar a editora atual.';
+
+  @override
+  String get bookSearchPublisherError => 'Não foi possível pesquisar editoras.';
+
+  @override
+  String get bookSelectPublisherError => 'Selecione uma editora.';
+
+  @override
+  String get bookNoPublishersFound => 'Nenhuma editora encontrada.';
+
+  @override
+  String fieldRequired(String field) {
+    return '$field é obrigatório.';
+  }
+
+  @override
+  String get bookIsbnMaxLength => 'O ISBN deve ter no máximo 13 dígitos.';
+
+  @override
+  String get bookDateFormat => 'Informe a data no formato dd/MM/aaaa.';
+
+  @override
+  String get bookDateInvalid => 'Informe uma data válida.';
+
+  @override
+  String get publisherEditTitle => 'Editar editora';
+
+  @override
+  String get rentalSearchUserHint => 'Pesquisar usuário pelo nome';
+
+  @override
+  String get rentalNoUsersFound => 'Nenhum usuário encontrado.';
+
+  @override
+  String get rentalSearchBookHint => 'Pesquisar livro pelo título';
+
+  @override
+  String rentalAvailableStock(int quantity) {
+    return 'Estoque disponível: $quantity';
+  }
+
+  @override
+  String get rentalNoBooksAvailable => 'Nenhum livro disponível encontrado.';
+
+  @override
+  String get userLoadError => 'Não foi possível carregar os usuários.';
+
+  @override
+  String get userNoResults => 'Nenhum usuário encontrado.';
+
+  @override
+  String get userUpdateSuccess => 'Usuário atualizado com sucesso!';
+
+  @override
+  String userUpdateError(String error) {
+    return 'Erro ao atualizar usuário: $error';
+  }
+
+  @override
+  String get userDeleteSuccess => 'Usuário excluído com sucesso!';
+
+  @override
+  String userDeleteError(String error) {
+    return 'Erro ao excluir usuário: $error';
+  }
+
+  @override
+  String get userEditTitle => 'Editar usuário';
+
+  @override
+  String get settingsLoadError => 'Não foi possível carregar as configurações.';
+
+  @override
+  String get profile => 'Perfil';
+
+  @override
+  String get accessibility => 'Acessibilidade';
+
+  @override
+  String get back => 'Voltar';
 }

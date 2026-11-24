@@ -206,5 +206,67 @@
   "publisherCreateSubtitle": "Complete los datos de la nueva editorial",
   "publisherDeleteTitle": "Eliminar editorial",
   "publisherDeleteConfirmation": "¿Está seguro de que desea eliminar esta editorial?",
-  "publisherDeleteIrreversible": "Esta acción no se puede deshacer."
+  "publisherDeleteIrreversible": "Esta acción no se puede deshacer.",
+  "publisherPageTitle": "Editoriales",
+  "publisherCreateSuccess": "¡Editorial registrada correctamente!",
+  "publisherCreateError": "Error al registrar la editorial.",
+  "publisherUpdateSuccess": "¡Editorial actualizada correctamente!",
+  "publisherUpdateError": "Error al actualizar la editorial.",
+  "publisherDeleteSuccess": "¡Editorial eliminada correctamente!",
+  "publisherDeleteError": "Error al eliminar la editorial.",
+  "publisherNoResults": "No se encontraron editoriales.",
+  "publisherLoadError": "No se pudieron cargar las editoriales.",
+  "bookLoadPublisherError": "No se pudo cargar la editorial actual.",
+  "bookSearchPublisherError": "No se pudieron buscar editoriales.",
+  "bookSelectPublisherError": "Seleccione una editorial.",
+  "bookNoPublishersFound": "No se encontraron editoriales.",
+  "fieldRequired": "{field} es obligatorio.",
+  "@fieldRequired": {
+  "placeholders": {
+    "field": {
+      "type": "String"
+    }
+  }
+},
+  "bookIsbnMaxLength": "El ISBN debe tener un máximo de 13 dígitos.",
+  "bookDateFormat": "Ingrese la fecha en formato dd/MM/aaaa.",
+  "bookDateInvalid": "Ingrese una fecha válida.",
+  "publisherEditTitle": "Editar editorial",
+  "rentalSearchUserHint": "Buscar usuario por nombre",
+  "rentalNoUsersFound": "No se encontraron usuarios.",
+  "rentalSearchBookHint": "Buscar libro por título",
+  "rentalAvailableStock": "Stock disponible: {quantity}",
+  "@rentalAvailableStock": {
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "rentalNoBooksAvailable": "No se encontraron libros disponibles.",
+  "userLoadError": "No se pudieron cargar los usuarios.",
+  "userNoResults": "No se encontraron usuarios.",
+  "userUpdateSuccess": "¡Usuario actualizado correctamente!",
+  "userUpdateError": "Error al actualizar el usuario: {error}",
+  "@userUpdateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "userDeleteSuccess": "¡Usuario eliminado correctamente!",
+  "userDeleteError": "Error al eliminar el usuario: {error}",
+  "@userDeleteError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "userEditTitle": "Editar usuario",
+  "settingsLoadError": "No se pudieron cargar los ajustes.",
+  "profile": "Perfil",
+  "accessibility": "Accesibilidad",
+  "back": "Volver"
 }

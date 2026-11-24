@@ -206,5 +206,67 @@
   "publisherCreateSubtitle": "Fill in the new publisher details",
   "publisherDeleteTitle": "Delete publisher",
   "publisherDeleteConfirmation": "Are you sure you want to delete this publisher?",
-  "publisherDeleteIrreversible": "This action cannot be undone."
+  "publisherDeleteIrreversible": "This action cannot be undone.",
+  "publisherPageTitle": "Publishers",
+  "publisherCreateSuccess": "Publisher registered successfully!",
+  "publisherCreateError": "Error registering publisher.",
+  "publisherUpdateSuccess": "Publisher updated successfully!",
+  "publisherUpdateError": "Error updating publisher.",
+  "publisherDeleteSuccess": "Publisher deleted successfully!",
+  "publisherDeleteError": "Error deleting publisher.",
+  "publisherNoResults": "No publishers found.",
+  "publisherLoadError": "Could not load publishers.",
+  "bookLoadPublisherError": "Could not load the current publisher.",
+  "bookSearchPublisherError": "Could not search for publishers.",
+  "bookSelectPublisherError": "Select a publisher.",
+  "bookNoPublishersFound": "No publishers found.",
+  "fieldRequired": "{field} is required.",
+  "@fieldRequired": {
+  "placeholders": {
+    "field": {
+      "type": "String"
+    }
+  }
+},
+  "bookIsbnMaxLength": "The ISBN must have a maximum of 13 digits.",
+  "bookDateFormat": "Enter the date in dd/MM/yyyy format.",
+  "bookDateInvalid": "Enter a valid date.",
+  "publisherEditTitle": "Edit publisher",
+  "rentalSearchUserHint": "Search user by name",
+  "rentalNoUsersFound": "No users found.",
+  "rentalSearchBookHint": "Search book by title",
+  "rentalAvailableStock": "Available stock: {quantity}",
+  "@rentalAvailableStock": {
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "rentalNoBooksAvailable": "No available books found.",
+  "userLoadError": "Could not load users.",
+  "userNoResults": "No users found.",
+  "userUpdateSuccess": "User updated successfully!",
+  "userUpdateError": "Error updating user: {error}",
+  "@userUpdateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "userDeleteSuccess": "User deleted successfully!",
+  "userDeleteError": "Error deleting user: {error}",
+  "@userDeleteError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "userEditTitle": "Edit user",
+  "settingsLoadError": "Could not load settings.",
+  "profile": "Profile",
+  "accessibility": "Accessibility",
+  "back": "Back"
 }

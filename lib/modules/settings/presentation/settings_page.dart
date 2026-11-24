@@ -28,10 +28,11 @@ class _SettingsPageState extends State<SettingsPage> {
   }) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     final tabs = <Widget>[
-      if (!isAdmin) const Tab(text: 'Perfil'),
-      const Tab(text: 'Acessibilidade'),
+      if (!isAdmin) Tab(text: l10n.profile),
+      Tab(text: l10n.accessibility),
     ];
 
     final pages = <Widget>[
@@ -99,6 +100,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget _buildError(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return Center(
       child: Padding(
@@ -113,7 +115,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             const SizedBox(height: 12),
             Text(
-              'Não foi possível carregar as configurações.',
+              l10n.settingsLoadError,
               textAlign: TextAlign.center,
               style: theme.textTheme.bodyLarge?.copyWith(
                 color: colors.onSurface,
@@ -126,7 +128,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   _adminFuture = SessionService.isAdmin();
                 });
               },
-              child: const Text('Tentar novamente'),
+              child: Text(l10n.retry),
             ),
           ],
         ),
@@ -147,7 +149,7 @@ class _SettingsPageState extends State<SettingsPage> {
         foregroundColor: colors.onSurface,
         elevation: 0,
         leading: IconButton(
-          tooltip: 'Voltar',
+          tooltip: l10n.back,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
